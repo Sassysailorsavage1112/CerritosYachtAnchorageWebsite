@@ -1,374 +1,652 @@
-"use strict";
+/* ==========================================
+CERRITOS YACHT ANCHORAGE
+WEBSITE INTERACTIONS
+========================================== */
+
+
+/* ==========================================
+INITIALIZATION
+========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const body = document.body;
+initializeNavigation();
 
-const settingsButton =
-document.getElementById("settings-button");
+initializeScrollProgress();
 
-const settingsContent =
-document.getElementById("settings-content");
+initializeTestimonials();
 
-const darkMode =
-document.getElementById("dark-mode");
+initializeLogoConfetti();
 
-const contrastMode =
-document.getElementById("contrast-mode");
+initializeContactForm();
 
-const motionMode =
-document.getElementById("motion-mode");
+initializeBackToTop();
 
-const toast =
-document.getElementById("toast");
+initializeFooterYear();
+
+});
 
 
-// =================================
-// SETTINGS PANEL
-// =================================
+/* ==========================================
+MOBILE NAVIGATION
+========================================== */
 
-settingsButton.addEventListener("click", () => {
+function initializeNavigation() {
 
-const expanded =
-settingsButton.getAttribute("aria-expanded")
-=== "true";
+const menuToggle = document.getElementById("menuToggle");
 
-settingsButton.setAttribute(
+const navLinks = document.getElementById("navLinks");
+
+if (!menuToggle || !navLinks) return;
+
+
+menuToggle.addEventListener("click", () => {
+
+const isOpen = navLinks.classList.toggle("open");
+
+menuToggle.setAttribute(
 "aria-expanded",
-String(!expanded)
+String(isOpen)
 );
 
-settingsContent.hidden = expanded;
+menuToggle.setAttribute(
+"aria-label",
+isOpen ? "Close navigation menu" : "Open navigation menu"
+);
+
+menuToggle.textContent = isOpen ? "✕" : "☰";
 
 });
 
 
-// =================================
-// PERSISTENT USER PREFERENCES
-// =================================
+// Close menu after selecting a navigation link
 
-function loadPreferences() {
-
-darkMode.checked =
-localStorage.getItem("darkMode") === "true";
-
-contrastMode.checked =
-localStorage.getItem("contrastMode") === "true";
-
-motionMode.checked =
-localStorage.getItem("motionMode") === "true";
-
-applyPreferences();
-
-}
-
-
-function applyPreferences() {
-
-body.classList.toggle(
-"dark-mode",
-darkMode.checked
-);
-
-body.classList.toggle(
-"high-contrast",
-contrastMode.checked
-);
-
-body.classList.toggle(
-"reduce-motion",
-motionMode.checked
-);
-
-localStorage.setItem(
-"darkMode",
-darkMode.checked
-);
-
-localStorage.setItem(
-"contrastMode",
-contrastMode.checked
-);
-
-localStorage.setItem(
-"motionMode",
-motionMode.checked
-);
-
-}
-
-
-[darkMode, contrastMode, motionMode]
-.forEach(toggle => {
-
-toggle.addEventListener(
-"change",
-applyPreferences
-);
-
-});
-
-
-// =================================
-// MOBILE NAVIGATION
-// =================================
-
-const menuButton =
-document.querySelector(".menu-toggle");
-
-const navigation =
-document.getElementById("navigation");
-
-
-menuButton.addEventListener("click", () => {
-
-const open =
-navigation.classList.toggle("open");
-
-menuButton.setAttribute(
-"aria-expanded",
-String(open)
-);
-
-menuButton.textContent =
-open ? "✕" : "☰";
-
-});
-
-
-navigation.querySelectorAll("a").forEach(link => {
+navLinks.querySelectorAll("a").forEach(link => {
 
 link.addEventListener("click", () => {
 
-navigation.classList.remove("open");
+navLinks.classList.remove("open");
 
-menuButton.setAttribute(
-"aria-expanded",
-"false"
+menuToggle.setAttribute("aria-expanded", "false");
+
+menuToggle.setAttribute(
+"aria-label",
+"Open navigation menu"
 );
 
-menuButton.textContent = "☰";
+menuToggle.textContent = "☰";
 
 });
 
 });
 
 
-// =================================
-// SCROLL PROGRESS
-// =================================
+// Close menu when clicking outside
 
-const progressBar =
-document.getElementById("progress-bar");
+document.addEventListener("click", event => {
 
-const backToTop =
-document.getElementById("back-to-top");
+if (
+!navLinks.contains(event.target) &&
+!menuToggle.contains(event.target)
+) {
+
+navLinks.classList.remove("open");
+
+menuToggle.setAttribute("aria-expanded", "false");
+
+menuToggle.textContent = "☰";
+
+}
+
+});
+
+}
 
 
-function updateScroll() {
+/* ==========================================
+SCROLL PROGRESS BAR
+========================================== */
 
-const scrollable =
+function initializeScrollProgress() {
+
+const progressBar = document.getElementById("scrollProgress");
+
+if (!progressBar) return;
+
+
+let ticking = false;
+
+
+window.addEventListener("scroll", () => {
+
+if (ticking) return;
+
+ticking = true;
+
+requestAnimationFrame(() => {
+
+const scrollableHeight =
 document.documentElement.scrollHeight -
 window.innerHeight;
 
-const progress =
-scrollable > 0
-? (window.scrollY / scrollable) * 100
+const progress = scrollableHeight > 0
+? (window.scrollY / scrollableHeight) * 100
 : 0;
 
 progressBar.style.width =
-`${progress}%`;
+Math.min(progress, 100) + "%";
 
-backToTop.classList.toggle(
-"visible",
-window.scrollY > 400
-);
+ticking = false;
+
+});
+
+}, { passive: true });
 
 }
 
 
-window.addEventListener(
-"scroll",
-updateScroll,
-{ passive: true }
+/* ==========================================
+TESTIMONIAL CAROUSEL
+========================================== */
+
+function initializeTestimonials() {
+
+const cards = document.querySelectorAll(".testimonial-card");
+
+const nextButton = document.getElementById("testimonialNext");
+
+const prevButton = document.getElementById("testimonialPrev");
+
+const dotsContainer = document.getElementById("testimonialDots");
+
+const counter = document.getElementById("testimonialCounter");
+
+
+if (
+!cards.length ||
+!nextButton ||
+!prevButton ||
+!dotsContainer ||
+!counter
+) return;
+
+
+let currentIndex = 0;
+
+
+// Create navigation dots
+
+cards.forEach((card, index) => {
+
+const dot = document.createElement("button");
+
+dot.type = "button";
+
+dot.className = "testimonial-dot";
+
+dot.setAttribute(
+"aria-label",
+`Show testimonial ${index + 1}`
 );
 
+dot.addEventListener("click", () => {
 
-backToTop.addEventListener("click", () => {
-
-window.scrollTo({
-top: 0,
-behavior: motionMode.checked
-? "instant"
-: "smooth"
-});
+showTestimonial(index);
 
 });
 
+dotsContainer.appendChild(dot);
 
-// =================================
-// ANIMATED COUNTERS
-// =================================
+});
 
-const counters =
-document.querySelectorAll(".counter");
 
-const observer = new IntersectionObserver(
-entries => {
+const dots = dotsContainer.querySelectorAll(".testimonial-dot");
 
-entries.forEach(entry => {
 
-if (!entry.isIntersecting) return;
+// Display selected testimonial
 
-const counter = entry.target;
+function showTestimonial(index) {
 
-const target =
-Number(counter.dataset.target);
+currentIndex =
+(index + cards.length) % cards.length;
 
-const duration = 1600;
 
-const start = performance.now();
+cards.forEach((card, i) => {
 
-function animate(now) {
+const active = i === currentIndex;
 
-const elapsed = now - start;
+card.classList.toggle("active", active);
 
-const progress = Math.min(
-elapsed / duration,
-1
-);
+card.setAttribute("aria-hidden", String(!active));
 
-const eased =
-1 - Math.pow(1 - progress, 4);
+});
 
-counter.textContent =
-Math.floor(target * eased).toLocaleString();
 
-if (progress < 1) {
+dots.forEach((dot, i) => {
 
-requestAnimationFrame(animate);
+const active = i === currentIndex;
+
+dot.classList.toggle("active", active);
+
+if (active) {
+
+dot.setAttribute("aria-current", "true");
 
 } else {
 
-counter.textContent =
-target.toLocaleString();
+dot.removeAttribute("aria-current");
 
 }
-
-}
-
-if (motionMode.checked) {
-
-counter.textContent =
-target.toLocaleString();
-
-} else {
-
-requestAnimationFrame(animate);
-
-}
-
-observer.unobserve(counter);
 
 });
 
-},
-{ threshold: 0.5 }
+
+counter.textContent =
+`${currentIndex + 1} / ${cards.length}`;
+
+}
+
+
+// Next
+
+nextButton.addEventListener("click", () => {
+
+showTestimonial(currentIndex + 1);
+
+});
+
+
+// Previous
+
+prevButton.addEventListener("click", () => {
+
+showTestimonial(currentIndex - 1);
+
+});
+
+
+// Keyboard navigation while carousel has focus
+
+const carousel = document.querySelector(".testimonial-carousel");
+
+carousel.addEventListener("keydown", event => {
+
+if (event.key === "ArrowRight") {
+
+showTestimonial(currentIndex + 1);
+
+}
+
+if (event.key === "ArrowLeft") {
+
+showTestimonial(currentIndex - 1);
+
+}
+
+});
+
+
+// Initialize
+
+showTestimonial(0);
+
+}
+
+
+/* ==========================================
+FLOATING NAUTICAL LOGO CONFETTI
+========================================== */
+
+function initializeLogoConfetti() {
+
+const toggle = document.getElementById("logoConfettiToggle");
+
+if (!toggle) return;
+
+
+const logoPath = "assets/cerritos-logo.png";
+
+const storageKey = "cerritosLogoConfetti";
+
+const reducedMotion = window.matchMedia(
+"(prefers-reduced-motion: reduce)"
 );
 
 
-counters.forEach(counter => {
-observer.observe(counter);
-});
+const MAX_PARTICLES = 12;
+
+let lastScroll = 0;
+
+let animationFrame = null;
 
 
-// =================================
-// TOAST NOTIFICATIONS
-// =================================
+// Restore saved preference
 
-let toastTimer;
+const savedPreference = localStorage.getItem(storageKey);
 
-function showToast(message) {
+toggle.checked = savedPreference === "true";
 
-toast.textContent = message;
 
-toast.classList.add("visible");
+// Respect reduced motion preferences
 
-clearTimeout(toastTimer);
+if (reducedMotion.matches) {
 
-toastTimer = setTimeout(() => {
+toggle.checked = false;
 
-toast.classList.remove("visible");
-
-}, 3500);
+toggle.disabled = true;
 
 }
 
 
-// =================================
-// CONTACT FORM
-// =================================
+// Create floating logo
 
-const form =
-document.getElementById("contact-form");
+function createFloatingLogo() {
+
+if (!toggle.checked || reducedMotion.matches) return;
+
+
+const activeParticles = document.querySelectorAll(
+".logo-confetti"
+);
+
+
+if (activeParticles.length >= MAX_PARTICLES) return;
+
+
+const logo = document.createElement("img");
+
+logo.src = logoPath;
+
+logo.alt = "";
+
+logo.className = "logo-confetti";
+
+logo.setAttribute("aria-hidden", "true");
+
+
+// Random horizontal position
+
+logo.style.left = Math.random() * 95 + "vw";
+
+
+// Random animation duration
+
+const duration = 5 + Math.random() * 5;
+
+logo.style.animationDuration = duration + "s";
+
+
+// Random logo size
+
+const size = 22 + Math.random() * 20;
+
+logo.style.width = size + "px";
+
+logo.style.height = size + "px";
+
+
+document.body.appendChild(logo);
+
+
+// Remove after animation
+
+logo.addEventListener("animationend", () => {
+
+logo.remove();
+
+});
+
+
+// Remove if image cannot load
+
+logo.addEventListener("error", () => {
+
+logo.remove();
+
+});
+
+}
+
+
+// Detect scrolling
+
+function handleScroll() {
+
+if (!toggle.checked || reducedMotion.matches) return;
+
+
+const currentScroll = window.scrollY;
+
+
+if (Math.abs(currentScroll - lastScroll) > 90) {
+
+createFloatingLogo();
+
+lastScroll = currentScroll;
+
+}
+
+}
+
+
+// Efficient scroll listener
+
+window.addEventListener("scroll", () => {
+
+if (animationFrame) return;
+
+
+animationFrame = requestAnimationFrame(() => {
+
+handleScroll();
+
+animationFrame = null;
+
+});
+
+}, { passive: true });
+
+
+// Toggle interaction
+
+toggle.addEventListener("change", () => {
+
+localStorage.setItem(
+storageKey,
+String(toggle.checked)
+);
+
+
+if (!toggle.checked) {
+
+document.querySelectorAll(".logo-confetti").forEach(logo => {
+
+logo.remove();
+
+});
+
+} else {
+
+createFloatingLogo();
+
+}
+
+});
+
+
+// React to operating-system motion preferences
+
+reducedMotion.addEventListener("change", event => {
+
+if (event.matches) {
+
+toggle.checked = false;
+
+toggle.disabled = true;
+
+localStorage.setItem(storageKey, "false");
+
+
+document.querySelectorAll(".logo-confetti").forEach(logo => {
+
+logo.remove();
+
+});
+
+} else {
+
+toggle.disabled = false;
+
+}
+
+});
+
+}
+
+
+/* ==========================================
+CONTACT FORM
+========================================== */
+
+function initializeContactForm() {
+
+const form = document.getElementById("contactForm");
+
+if (!form) return;
 
 
 form.addEventListener("submit", event => {
 
 event.preventDefault();
 
-if (!form.reportValidity()) return;
 
-const name =
-form.elements.name.value.trim();
+const name = document.getElementById("name").value.trim();
 
-const email =
-form.elements.email.value.trim();
+const email = document.getElementById("email").value.trim();
 
-const service =
-form.elements.service.value;
+const message = document.getElementById("message").value.trim();
 
-const message =
-form.elements.message.value.trim();
+
+if (!name || !email || !message) {
+
+alert("Please complete all fields.");
+
+return;
+
+}
+
+
+const emailPattern =
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+if (!emailPattern.test(email)) {
+
+alert("Please enter a valid email address.");
+
+return;
+
+}
+
+
+/*
+DEMONSTRATION FORM
+
+Replace this placeholder with the verified
+business email address before launching.
+
+This opens the visitor's email application.
+It does not submit to a server.
+*/
+
+
+const businessEmail = "";
+
+if (!businessEmail) {
+
+alert(
+"The contact form is ready for configuration. " +
+"A verified business email address needs to be added."
+);
+
+return;
+
+}
 
 
 const subject = encodeURIComponent(
-`Website Inquiry: ${service}`
+"Website Inquiry - " + name
 );
+
 
 const body = encodeURIComponent(
-
-`Hello Cerritos Yacht Anchorage,
-
-My name is ${name}.
-
-Email: ${email}
-
-Interested in: ${service}
-
-Message:
-${message}
-
-Thank you.`
-
+"Name: " + name +
+"\nEmail: " + email +
+"\n\nMessage:\n" + message
 );
-
-
-showToast("Preparing your email inquiry...");
 
 
 window.location.href =
-`mailto:contact@cerritosyacht.com?subject=${subject}&body=${body}`;
+`mailto:${businessEmail}?subject=${subject}&body=${body}`;
 
 });
 
+}
 
-// =================================
-// INITIALIZE
-// =================================
 
-loadPreferences();
+/* ==========================================
+BACK TO TOP
+========================================== */
 
-updateScroll();
+function initializeBackToTop() {
+
+const button = document.getElementById("backToTop");
+
+if (!button) return;
+
+
+window.addEventListener("scroll", () => {
+
+button.classList.toggle(
+"visible",
+window.scrollY > 500
+);
+
+}, { passive: true });
+
+
+button.addEventListener("click", () => {
+
+const reducedMotion = window.matchMedia(
+"(prefers-reduced-motion: reduce)"
+).matches;
+
+
+window.scrollTo({
+
+top: 0,
+
+behavior: reducedMotion ? "auto" : "smooth"
 
 });
+
+});
+
+}
+
+
+/* ==========================================
+AUTOMATIC COPYRIGHT YEAR
+========================================== */
+
+function initializeFooterYear() {
+
+const year = document.getElementById("currentYear");
+
+if (year) {
+
+year.textContent = new Date().getFullYear();
+
+}
+
+}
