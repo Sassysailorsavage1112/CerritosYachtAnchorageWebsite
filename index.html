@@ -4,268 +4,326 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cerritos Yacht Anchorage | Marina & Boatyard</title>
+<title>Cerritos Yacht Anchorage | Marina & Marine Services</title>
 
-<meta name="description" content="Discover Cerritos Yacht Anchorage, a family-owned Southern California marina and boatyard serving the boating community since the 1940s.">
+<meta
+name="description"
+content="Discover Cerritos Yacht Anchorage, offering marina services, boatyard services, bottom painting, and convenient marina amenities."
+>
 
-<meta name="theme-color" content="#071d2b">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Cerritos Yacht Anchorage">
+<meta name="theme-color" content="#102b40">
 
+<link rel="canonical" href="https://cerritosyacht.com/">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cerritos Yacht Anchorage | Marina & Marine Services">
+<meta
+property="og:description"
+content="Your destination for marina services, boatyard services, and life on the water."
+>
+<meta property="og:url" content="https://cerritosyacht.com/">
+<meta
+property="og:image"
+content="https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png"
+>
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+rel="stylesheet"
+>
 
+<!-- Main Stylesheet -->
 <link rel="stylesheet" href="style.css">
 
+<!-- Local Business Structured Data -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Marina",
+"name": "Cerritos Yacht Anchorage",
+"url": "https://cerritosyacht.com/",
+"image": "https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png",
+"description": "Cerritos Yacht Anchorage provides marina services, boatyard services, and marine amenities."
+}
+</script>
 </head>
 
 <body>
 
-<div id="progress-bar"></div>
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
-<header>
 
-<div class="container nav-container">
+<!-- =========================
+HEADER / NAVIGATION
+========================== -->
 
-<a href="#" class="logo">
-<span class="logo-icon">CYA</span>
+<header class="site-header" id="top">
 
-<span>
-<strong>CERRITOS YACHT</strong>
-<small>ANCHORAGE & MARINE SERVICE</small>
-</span>
+<div class="container header-container">
+
+<a href="#home" class="logo" aria-label="Cerritos Yacht Anchorage home">
+
+<img
+src="assets/cerritos-logo.png"
+alt="Cerritos Yacht Anchorage sailboat and captain's wheel logo"
+class="logo-image"
+>
+
+<div class="logo-text">
+<span class="logo-title">CERRITOS</span>
+<span class="logo-subtitle">YACHT ANCHORAGE</span>
+</div>
+
 </a>
 
-<button class="menu-toggle"
-aria-label="Toggle navigation"
-aria-expanded="false">
-☰
+
+<button
+class="mobile-menu-toggle"
+id="mobileMenuToggle"
+aria-label="Open navigation menu"
+aria-expanded="false"
+aria-controls="mainNavigation"
+type="button"
+>
+<span></span>
+<span></span>
+<span></span>
 </button>
 
-<nav id="navigation">
 
-<a href="#story">Our Story</a>
-<a href="#services">Services</a>
-<a href="#amenities">Amenities</a>
-<a href="#contact">Contact</a>
+<nav class="main-navigation" id="mainNavigation">
+
+<ul class="nav-list">
+
+<li>
+<a href="#home" class="nav-link">Home</a>
+</li>
+
+<li>
+<a href="#about" class="nav-link">About</a>
+</li>
+
+<li>
+<a href="#services" class="nav-link">Services</a>
+</li>
+
+<li>
+<a href="#amenities" class="nav-link">Amenities</a>
+</li>
+
+<li>
+<a href="#testimonials" class="nav-link">Testimonials</a>
+</li>
+
+<li>
+<a href="#contact" class="nav-link nav-contact">
+Contact Us
+</a>
+</li>
+
+</ul>
 
 </nav>
-
-<a href="#contact" class="nav-button">
-GET IN TOUCH →
-</a>
 
 </div>
 
 </header>
 
 
-<!-- ACCESSIBILITY CONTROL PANEL -->
 
-<section class="settings-panel">
+<!-- =========================
+HERO SECTION
+========================== -->
 
-<button id="settings-button"
-aria-expanded="false"
-aria-controls="settings-content">
+<main>
 
-⚙ Display Settings
-
-</button>
-
-<div id="settings-content" hidden>
-
-<div class="setting">
-
-<label for="dark-mode">
-Dark Mode
-</label>
-
-<input type="checkbox"
-id="dark-mode"
-class="switch">
-
-</div>
-
-
-<div class="setting">
-
-<label for="contrast-mode">
-High Contrast
-</label>
-
-<input type="checkbox"
-id="contrast-mode"
-class="switch">
-
-</div>
-
-
-<div class="setting">
-
-<label for="motion-mode">
-Reduce Motion
-</label>
-
-<input type="checkbox"
-id="motion-mode"
-class="switch">
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- HERO -->
-
-<section class="hero">
+<section class="hero" id="home">
 
 <div class="hero-overlay"></div>
 
 <div class="container hero-content">
 
-<p class="eyebrow">
-ESTABLISHED IN THE 1940s
-</p>
+<span class="hero-eyebrow">
+YOUR DESTINATION ON THE WATER
+</span>
 
 <h1>
-A Marina With A
-<em>Legacy.</em>
+A Better Way<br>
+to Experience <span>Life on the Water.</span>
 </h1>
 
-<p class="hero-description">
-
-Four generations of family tradition,
-craftsmanship and commitment to the
-Southern California boating community.
-
+<p>
+Discover the convenience, services, and welcoming
+atmosphere of Cerritos Yacht Anchorage.
 </p>
 
-<a href="#services" class="primary-button">
-EXPLORE OUR SERVICES →
+<div class="hero-buttons">
+
+<a href="#services" class="btn btn-primary">
+Explore Our Services
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Get in Touch
 </a>
 
 </div>
 
-</section>
-
-
-<!-- INTRODUCTION -->
-
-<section id="story" class="section">
-
-<div class="container intro-grid">
-
-<div>
-
-<p class="eyebrow">OUR HERITAGE</p>
-
-<h2>
-Rooted in the harbor.
-<em>Here for generations.</em>
-</h2>
-
-<p>
-
-Cerritos Yacht Anchorage and Eddie's
-Marine Service have served the
-Wilmington boating community since
-the 1940s.
-
-</p>
-
-<p>
-
-Family ownership, practical experience
-and personal service remain at the
-heart of everything we do.
-
-</p>
-
-<a href="https://cerritosyacht.com/about-us/"
-class="text-link">
-DISCOVER OUR STORY →
-</a>
-
 </div>
 
-<div class="intro-image">
-
-<img
-src="https://cerritosyacht.com/wp-content/uploads/2020/04/Photo-5-450x350.png"
-alt="Cerritos Yacht Anchorage marina"
-loading="lazy">
-
-</div>
-
+<div class="hero-bottom-label">
+<span></span>
+EXPLORE CERRITOS YACHT ANCHORAGE
+<span></span>
 </div>
 
 </section>
 
 
-<!-- STATISTICS -->
 
-<section class="statistics">
+<!-- =========================
+INTRODUCTION / ABOUT
+========================== -->
 
-<div class="container stats-grid">
-
-<div>
-<strong class="counter" data-target="1940">0</strong>
-<span>ESTABLISHED</span>
-</div>
-
-<div>
-<strong class="counter" data-target="4">0</strong>
-<span>GENERATIONS</span>
-</div>
-
-<div>
-<strong class="counter" data-target="80">0</strong>
-<span>YEARS OF HERITAGE</span>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services" class="section services">
+<section class="about-section section-padding" id="about">
 
 <div class="container">
 
-<p class="eyebrow">WHAT WE OFFER</p>
+<div class="about-grid">
+
+<div class="about-image-wrapper">
+
+<img
+src="https://cerritosyacht.com/wp-content/uploads/2020/04/Photo-5-450x350.png"
+alt="Marina and boats at Cerritos Yacht Anchorage"
+class="about-image"
+loading="lazy"
+>
+
+<div class="image-caption">
+<span class="caption-icon">⚓</span>
+<span>Welcome to Cerritos Yacht Anchorage</span>
+</div>
+
+</div>
+
+
+<div class="about-content">
+
+<span class="section-eyebrow">
+WELCOME ABOARD
+</span>
 
 <h2>
-Professional care.
-<em>Personal service.</em>
+Where Your<br>
+<span>Maritime Journey</span><br>
+Begins.
 </h2>
 
-<div class="service-grid">
+<div class="section-divider"></div>
+
+<p>
+At Cerritos Yacht Anchorage, we believe that
+time on the water should be about enjoying
+the experience.
+</p>
+
+<p>
+Whether you're looking for marina services,
+professional boatyard support, or convenient
+amenities, our goal is to help make your time
+at the marina as enjoyable and straightforward
+as possible.
+</p>
+
+<a href="#services" class="text-link">
+Discover What We Offer
+<span aria-hidden="true">→</span>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+SERVICES
+========================== -->
+
+<section class="services-section section-padding" id="services">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-eyebrow">
+WHAT WE OFFER
+</span>
+
+<h2>
+Services Designed<br>
+<span>For Life on the Water</span>
+</h2>
+
+<p>
+Explore the services and facilities available
+at Cerritos Yacht Anchorage.
+</p>
+
+<div class="section-divider centered"></div>
+
+</div>
+
+
+<div class="services-grid">
+
+
+<!-- MARINA SERVICES -->
 
 <article class="service-card">
 
+<div class="service-image">
+
 <img
 src="https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png"
-alt="Marina facilities"
-loading="lazy">
+alt="Boats and marina facilities"
+loading="lazy"
+>
 
-<div class="card-content">
+<span class="service-number">01</span>
 
-<span>01 / MARINA</span>
+</div>
+
+<div class="service-content">
+
+<span class="service-category">
+MARINA
+</span>
 
 <h3>Marina Services</h3>
 
 <p>
-Marina facilities and amenities
-designed around the needs
-of boat owners.
+Learn more about the marina and the
+services available to boat owners
+and visitors.
 </p>
 
-<a href="https://cerritosyacht.com/marina-services/">
-LEARN MORE →
+<a href="#contact" class="service-link">
+Learn More
+<span aria-hidden="true">→</span>
 </a>
 
 </div>
@@ -273,27 +331,40 @@ LEARN MORE →
 </article>
 
 
+
+<!-- BOATYARD SERVICES -->
+
 <article class="service-card">
+
+<div class="service-image">
 
 <img
 src="https://cerritosyacht.com/wp-content/uploads/2020/03/Masthead-sheaves-replacement-min-600x370.jpg"
-alt="Marine repair services"
-loading="lazy">
+alt="Marine maintenance and masthead sheave replacement"
+loading="lazy"
+>
 
-<div class="card-content">
+<span class="service-number">02</span>
 
-<span>02 / BOATYARD</span>
+</div>
+
+<div class="service-content">
+
+<span class="service-category">
+MAINTENANCE
+</span>
 
 <h3>Boatyard Services</h3>
 
 <p>
-Experienced marine service
-for maintenance, repairs
-and vessel care.
+Explore boatyard services and support
+for maintaining and caring for your
+vessel.
 </p>
 
-<a href="https://cerritosyacht.com/boatyard-services/">
-LEARN MORE →
+<a href="#contact" class="service-link">
+Learn More
+<span aria-hidden="true">→</span>
 </a>
 
 </div>
@@ -301,33 +372,88 @@ LEARN MORE →
 </article>
 
 
+
+<!-- BOTTOM PAINTING -->
+
 <article class="service-card">
 
+<div class="service-image">
+
 <img
-src="https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png"
-alt="Vessel at Cerritos Yacht Anchorage"
-loading="lazy">
+src="assets/bottom-painting.jpg"
+alt="Boat hull and bottom painting service"
+loading="lazy"
+>
 
-<div class="card-content">
+<span class="service-number">03</span>
 
-<span>03 / MAINTENANCE</span>
+</div>
+
+<div class="service-content">
+
+<span class="service-category">
+VESSEL CARE
+</span>
 
 <h3>Bottom Painting</h3>
 
 <p>
-Professional maintenance
-and bottom painting
-inquiries for your vessel.
+Discover bottom painting services
+that help protect and maintain your
+vessel's hull.
 </p>
 
-<a href="#contact">
-REQUEST INFORMATION →
+<a href="#contact" class="service-link">
+Learn More
+<span aria-hidden="true">→</span>
 </a>
 
 </div>
 
 </article>
 
+
+
+<!-- MARINA AMENITIES -->
+
+<article class="service-card">
+
+<div class="service-image">
+
+<img
+src="assets/marina-facilities.jpg"
+alt="Cerritos Yacht Anchorage marina facilities"
+loading="lazy"
+>
+
+<span class="service-number">04</span>
+
+</div>
+
+<div class="service-content">
+
+<span class="service-category">
+EXPERIENCE
+</span>
+
+<h3>Marina Amenities</h3>
+
+<p>
+Find out more about the amenities
+and conveniences available around
+the marina.
+</p>
+
+<a href="#amenities" class="service-link">
+Learn More
+<span aria-hidden="true">→</span>
+</a>
+
+</div>
+
+</article>
+
+
 </div>
 
 </div>
@@ -335,148 +461,791 @@ REQUEST INFORMATION →
 </section>
 
 
-<!-- AMENITIES -->
 
-<section id="amenities" class="section amenities">
+<!-- =========================
+FEATURE SECTION
+========================== -->
+
+<section class="feature-section">
+
+<div class="feature-image">
+
+<img
+src="https://cerritosyacht.com/wp-content/uploads/2020/04/Photo-5-450x350.png"
+alt="Boats at the marina"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="feature-content">
+
+<span class="section-eyebrow">
+THE MARINA EXPERIENCE
+</span>
+
+<h2>
+More Than a Place<br>
+to Keep Your Boat.
+</h2>
+
+<div class="section-divider"></div>
+
+<p>
+Your time on the water matters. Cerritos Yacht
+Anchorage brings together marina services,
+boatyard support, and amenities to help make
+your boating experience more convenient.
+</p>
+
+<a href="#contact" class="btn btn-primary">
+Contact Our Team
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+AMENITIES
+========================== -->
+
+<section class="amenities-section section-padding" id="amenities">
 
 <div class="container">
 
-<p class="eyebrow">THE CERRITOS EXPERIENCE</p>
+<div class="section-heading">
+
+<span class="section-eyebrow">
+THE LITTLE DETAILS MATTER
+</span>
 
 <h2>
-Everything you need.
-<em>All in one harbor.</em>
+Marina <span>Amenities</span>
 </h2>
 
-<div class="amenity-grid">
+<p>
+Explore the conveniences and facilities
+available at Cerritos Yacht Anchorage.
+</p>
 
-<div>✓ Water & Electricity</div>
-<div>✓ Restrooms & Showers</div>
-<div>✓ Gated Facility</div>
-<div>✓ Video Security</div>
-<div>✓ Slip Dock Boxes</div>
-<div>✓ Permitted Parking</div>
-<div>✓ 15-Ton Hauling Crane</div>
+<div class="section-divider centered"></div>
 
 </div>
 
-<p class="disclaimer">
-Please contact the marina to confirm
-current availability and amenities.
+
+<div class="amenities-grid">
+
+
+<div class="amenity-item">
+
+<div class="amenity-icon" aria-hidden="true">
+⚓
+</div>
+
+<h3>Marina Facilities</h3>
+
+<p>
+Convenient marina facilities for
+boat owners and visitors.
 </p>
+
+</div>
+
+
+<div class="amenity-item">
+
+<div class="amenity-icon" aria-hidden="true">
+⛵
+</div>
+
+<h3>Boating Community</h3>
+
+<p>
+A place to enjoy the boating lifestyle
+and time on the water.
+</p>
+
+</div>
+
+
+<div class="amenity-item">
+
+<div class="amenity-icon" aria-hidden="true">
+🛠
+</div>
+
+<h3>Marine Support</h3>
+
+<p>
+Access to information about marina
+and boatyard services.
+</p>
+
+</div>
+
+
+<div class="amenity-item">
+
+<div class="amenity-icon" aria-hidden="true">
+🌊
+</div>
+
+<h3>Waterfront Setting</h3>
+
+<p>
+Enjoy the atmosphere and experience
+of being at the marina.
+</p>
+
+</div>
+
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- CONTACT -->
 
-<section id="contact" class="section contact">
+<!-- =========================
+TESTIMONIALS
+========================== -->
 
-<div class="container contact-grid">
+<section class="testimonials-section section-padding" id="testimonials">
 
-<div>
+<div class="container">
 
-<p class="eyebrow">LET'S CONNECT</p>
+<div class="section-heading">
+
+<span class="section-eyebrow">
+WORDS FROM OUR COMMUNITY
+</span>
 
 <h2>
-Your next chapter
-<em>starts at the dock.</em>
+What People <span>Are Saying</span>
 </h2>
 
 <p>
-Looking for a slip or planning
-your next marine project?
-Our team would love to hear from you.
+Experiences and feedback from people
+familiar with Cerritos Yacht Anchorage.
 </p>
 
-<h3>310.834.4737</h3>
-
-<p>
-1400 Anchorage Road<br>
-Wilmington, CA 90744
-</p>
+<div class="section-divider centered"></div>
 
 </div>
 
 
-<form id="contact-form">
+<div class="testimonial-carousel" id="testimonialCarousel">
 
-<h3>Send an Inquiry</h3>
 
-<label for="name">Your Name</label>
+<div class="testimonial-track">
+
+
+<article class="testimonial-card active">
+
+<div class="testimonial-stars"
+aria-label="5 out of 5 stars">
+★★★★★
+</div>
+
+<span class="quote-mark" aria-hidden="true">
+“
+</span>
+
+<blockquote>
+Great place to keep a boat and enjoy
+the marina atmosphere.
+</blockquote>
+
+<div class="testimonial-author">
+<span class="author-avatar">J</span>
+<div>
+<strong>John B.</strong>
+<span>Marina Community</span>
+</div>
+</div>
+
+</article>
+
+
+
+<article class="testimonial-card">
+
+<div class="testimonial-stars"
+aria-label="5 out of 5 stars">
+★★★★★
+</div>
+
+<span class="quote-mark" aria-hidden="true">
+“
+</span>
+
+<blockquote>
+A convenient location and a great
+place to spend time around the water.
+</blockquote>
+
+<div class="testimonial-author">
+<span class="author-avatar">J</span>
+<div>
+<strong>Jason B.</strong>
+<span>Marina Community</span>
+</div>
+</div>
+
+</article>
+
+
+
+<article class="testimonial-card">
+
+<div class="testimonial-stars"
+aria-label="5 out of 5 stars">
+★★★★★
+</div>
+
+<span class="quote-mark" aria-hidden="true">
+“
+</span>
+
+<blockquote>
+Enjoyable marina experience with
+a welcoming atmosphere.
+</blockquote>
+
+<div class="testimonial-author">
+<span class="author-avatar">T</span>
+<div>
+<strong>TlW F.</strong>
+<span>Marina Community</span>
+</div>
+</div>
+
+</article>
+
+
+
+<article class="testimonial-card">
+
+<div class="testimonial-stars"
+aria-label="5 out of 5 stars">
+★★★★★
+</div>
+
+<span class="quote-mark" aria-hidden="true">
+“
+</span>
+
+<blockquote>
+A nice place to enjoy boating
+and the surrounding marina.
+</blockquote>
+
+<div class="testimonial-author">
+<span class="author-avatar">E</span>
+<div>
+<strong>El Chop O.</strong>
+<span>Marina Community</span>
+</div>
+</div>
+
+</article>
+
+
+
+<article class="testimonial-card">
+
+<div class="testimonial-stars"
+aria-label="5 out of 5 stars">
+★★★★★
+</div>
+
+<span class="quote-mark" aria-hidden="true">
+“
+</span>
+
+<blockquote>
+A great place for people who
+appreciate life on the water.
+</blockquote>
+
+<div class="testimonial-author">
+<span class="author-avatar">C</span>
+<div>
+<strong>Collins R.</strong>
+<span>Marina Community</span>
+</div>
+</div>
+
+</article>
+
+
+</div>
+
+
+<div class="testimonial-controls">
+
+<button
+class="testimonial-arrow testimonial-prev"
+type="button"
+aria-label="Previous testimonial"
+>
+←
+</button>
+
+<div
+class="testimonial-dots"
+aria-label="Choose testimonial"
+></div>
+
+<button
+class="testimonial-arrow testimonial-next"
+type="button"
+aria-label="Next testimonial"
+>
+→
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+CONTACT CALL TO ACTION
+========================== -->
+
+<section class="contact-cta">
+
+<div class="container">
+
+<div class="contact-cta-content">
+
+<span class="section-eyebrow">
+LET'S GET YOU ON THE WATER
+</span>
+
+<h2>
+Have Questions?<br>
+<span>We're Here to Help.</span>
+</h2>
+
+<p>
+Get in touch with Cerritos Yacht Anchorage
+to learn more about marina services and
+available facilities.
+</p>
+
+<a href="#contact" class="btn btn-light">
+Contact Us Today
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+CONTACT SECTION
+========================== -->
+
+<section class="contact-section section-padding" id="contact">
+
+<div class="container">
+
+<div class="contact-grid">
+
+
+<div class="contact-information">
+
+<span class="section-eyebrow">
+GET IN TOUCH
+</span>
+
+<h2>
+Let's Start<br>
+<span>A Conversation.</span>
+</h2>
+
+<div class="section-divider"></div>
+
+<p>
+Have a question about our marina or
+services? Send us a message and we'll
+be happy to help direct your inquiry.
+</p>
+
+
+<div class="contact-detail">
+
+<div class="contact-detail-icon"
+aria-hidden="true">
+⚓
+</div>
+
+<div>
+<strong>Location</strong>
+<span>
+Cerritos Yacht Anchorage
+</span>
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-detail-icon"
+aria-hidden="true">
+✉
+</div>
+
+<div>
+<strong>Website</strong>
+<a href="https://cerritosyacht.com/">
+cerritosyacht.com
+</a>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- CONTACT FORM -->
+
+<div class="contact-form-wrapper">
+
+<form id="contactForm" class="contact-form">
+
+<div class="form-heading">
+<h3>Send Us a Message</h3>
+<p>
+Fill out the form below to get started.
+</p>
+</div>
+
+
+<div class="form-group">
+
+<label for="contactName">
+Your Name
+</label>
 
 <input
-id="name"
+type="text"
+id="contactName"
 name="name"
+placeholder="Enter your name"
+autocomplete="name"
 required
-placeholder="Your name">
+>
 
-<label for="email">Email Address</label>
+</div>
+
+
+<div class="form-group">
+
+<label for="contactEmail">
+Email Address
+</label>
 
 <input
-id="email"
-name="email"
 type="email"
+id="contactEmail"
+name="email"
+placeholder="Enter your email"
+autocomplete="email"
 required
-placeholder="Your email">
+>
 
-<label for="service">Service Interest</label>
+</div>
 
-<select id="service" name="service">
 
-<option>Marina Services</option>
-<option>Boatyard Services</option>
-<option>Bottom Painting</option>
-<option>General Inquiry</option>
+<div class="form-group">
 
-</select>
+<label for="contactSubject">
+Subject
+</label>
 
-<label for="message">Message</label>
+<input
+type="text"
+id="contactSubject"
+name="subject"
+placeholder="What can we help you with?"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="contactMessage">
+Your Message
+</label>
 
 <textarea
-id="message"
+id="contactMessage"
 name="message"
-rows="4"
-placeholder="How can we help?"></textarea>
+rows="5"
+placeholder="Tell us how we can help..."
+required
+></textarea>
 
-<button type="submit" class="primary-button">
-SEND INQUIRY →
+</div>
+
+
+<button
+type="submit"
+class="btn btn-primary form-submit"
+>
+Send Message
+<span aria-hidden="true">→</span>
 </button>
+
+
+<p
+class="form-status"
+id="formStatus"
+role="status"
+aria-live="polite"
+></p>
 
 </form>
 
 </div>
 
+</div>
+
+</div>
+
 </section>
 
 
-<!-- FOOTER -->
 
-<footer>
+<!-- =========================
+NAUTICAL COMPASS
+========================== -->
 
-<div class="container footer-content">
+<section class="compass-section">
 
-<div>
-<h3>CERRITOS YACHT ANCHORAGE</h3>
-<p>Family owned since the 1940s.</p>
+<div class="compass-decoration">
+
+<div class="compass-outer">
+
+<div class="compass-inner">
+
+<span class="compass-direction north">N</span>
+<span class="compass-direction east">E</span>
+<span class="compass-direction south">S</span>
+<span class="compass-direction west">W</span>
+
+<div class="compass-needle"></div>
+
+<div class="compass-center">
+⚓
 </div>
 
-<a href="#top">BACK TO TOP ↑</a>
+</div>
+
+</div>
+
+</div>
+
+<p>
+MAY YOUR COURSE ALWAYS LEAD YOU TO THE WATER
+</p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+FOOTER
+========================== -->
+
+<footer class="site-footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<a href="#home" class="footer-logo">
+
+<img
+src="assets/cerritos-logo.png"
+alt="Cerritos Yacht Anchorage logo"
+loading="lazy"
+>
+
+<div>
+<span class="footer-logo-title">
+CERRITOS
+</span>
+
+<span class="footer-logo-subtitle">
+YACHT ANCHORAGE
+</span>
+</div>
+
+</a>
+
+<p>
+Your destination for marina services,
+boating, and life on the water.
+</p>
+
+</div>
+
+
+
+<div class="footer-links">
+
+<h3>Explore</h3>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#amenities">Amenities</a></li>
+<li><a href="#testimonials">Testimonials</a></li>
+</ul>
+
+</div>
+
+
+
+<div class="footer-links">
+
+<h3>Information</h3>
+
+<ul>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#services">Marina Services</a></li>
+<li><a href="#services">Boatyard Services</a></li>
+<li><a href="#amenities">Marina Amenities</a></li>
+</ul>
+
+</div>
+
+
+
+<div class="footer-contact">
+
+<h3>Visit Our Website</h3>
+
+<p>
+Learn more about Cerritos Yacht Anchorage.
+</p>
+
+<a
+href="https://cerritosyacht.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="footer-website-link"
+>
+cerritosyacht.com
+<span aria-hidden="true">↗</span>
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>
+&copy; <span id="currentYear"></span>
+Cerritos Yacht Anchorage. All rights reserved.
+</p>
+
+<a href="#top" class="footer-back-top">
+Back to Top ↑
+</a>
+
+</div>
 
 </div>
 
 </footer>
 
 
-<button id="back-to-top" aria-label="Back to top">
+
+<!-- =========================
+FLOATING LOGO CONFETTI
+========================== -->
+
+<div
+class="logo-confetti-container"
+id="logoConfettiContainer"
+aria-hidden="true"
+></div>
+
+
+<!-- CONFETTI TOGGLE -->
+
+<div class="nautical-controls">
+
+<span class="confetti-label">
+Nautical Magic
+</span>
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="confettiToggle"
+aria-label="Toggle floating logo animation"
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+
+<!-- BACK TO TOP BUTTON -->
+
+<button
+id="backToTop"
+class="back-to-top"
+type="button"
+aria-label="Back to top"
+>
 ↑
 </button>
 
-<div id="toast" role="status" aria-live="polite"></div>
 
-<script src="script.js"></script>
+
+<!-- MAIN JAVASCRIPT -->
+
+<script src="script.js" defer></script>
 
 </body>
 </html>
