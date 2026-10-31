@@ -1,136 +1,511 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b2635">
-<meta name="description" content="Cerritos Yacht Anchorage — independent, family-run marina and boatyard in Wilmington, California, since the 1940s.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b3a">
+<meta name="description" content="Cerritos Yacht Anchorage and Eddie's Marine Service. A family-owned marina and boatyard in Wilmington, California, since the 1940s.">
+
 <title>Cerritos Yacht Anchorage | A Legacy on the Water</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="utility"><span>Independent · Family-owned · Wilmington, California</span><a href="tel:+13108344737">Speak with our team <b>(310) 834-4737</b></a></div>
 
-<header class="header" id="top">
-<a class="brand" href="#top" aria-label="Cerritos Yacht Anchorage home">
-<img src="assets/cerritos-logo-no-text.png" alt="">
-<span><strong>Cerritos Yacht Anchorage</strong><small>Marina &amp; Boatyard · Est. 1940s</small></span>
+<body>
+
+<div class="topbar">
+<div>INDEPENDENT · FAMILY OWNED · WILMINGTON, CALIFORNIA</div>
+<a href="tel:+13108344737">CALL OUR TEAM <strong>(310) 834-4737</strong></a>
+</div>
+
+<header class="site-header">
+<a href="#home" class="brand">
+<img src="assets/cerritos-logo-no-text.png" alt="Cerritos Yacht Anchorage">
+<div class="brand-text">
+<strong>CERRITOS YACHT ANCHORAGE</strong>
+<span>MARINA &amp; BOATYARD · EST. 1940s</span>
+</div>
 </a>
-<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation"><span></span><span></span><span></span></button>
-<nav id="navigation" aria-label="Main navigation">
-<a href="#story">Our story</a><a href="#marina">The marina</a><a href="#services">Services</a><a href="#amenities">Amenities</a><a href="#testimonials">Testimonials</a>
-<a class="nav-apply" href="https://cerritosyacht.com/application-form/" target="_blank" rel="noopener">Berth inquiry <i>↗</i></a>
+
+<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<nav class="navigation">
+<a href="#story">Our Story</a>
+<a href="#marina">The Marina</a>
+<a href="#services">Services</a>
+<a href="#amenities">Amenities</a>
+<a href="#testimonials">Reviews</a>
+<a href="#contact" class="nav-cta">Contact Us <span>↗</span></a>
 </nav>
 </header>
 
 <main>
-<section class="hero">
-<div class="hero-image" role="img" aria-label="Cerritos Yacht Anchorage marina"></div>
-<div class="hero-shade"></div>
+
+<!-- STATIC HERO IMAGE -->
+<section class="hero" id="home">
+
+<img
+class="hero-photo"
+src="assets/original-hero.jpg"
+alt="Cerritos Yacht Anchorage marina and Henry Ford Bridge"
+fetchpriority="high"
+>
+
+<div class="hero-overlay"></div>
+
 <div class="hero-content">
-<div class="overline"><span></span> On the Cerritos Channel · Port of Los Angeles</div>
-<h1>A harbor with<br><em>history.</em><br>A place to belong.</h1>
-<p>Generations of family stewardship. A team that knows boats. And a waterfront home for the people who love them.</p>
-<div class="hero-links"><a class="button brass" href="#contact">Meet your marina <span>↗</span></a><a class="under-link" href="#story">Discover our story <span>↓</span></a></div>
+<div class="hero-kicker">
+<span></span>
+CERRITOS CHANNEL · PORT OF LOS ANGELES
 </div>
-<div class="hero-caption"><span>33°46′ N&nbsp; 118°15′ W</span><span>Wilmington, California</span><span class="caption-rule"></span><span>Since the 1940s</span></div>
-<div class="hero-monogram" aria-hidden="true">CYA</div>
+
+<h1>
+A harbor with<br>
+<em>history.</em>
+</h1>
+
+<p>
+Generations of family ownership. A hands-on team.
+A waterfront home for the people who love boating.
+</p>
+
+<div class="hero-actions">
+<a href="#story" class="button button-gold">
+DISCOVER OUR STORY <span>↗</span>
+</a>
+
+<a href="#services" class="hero-secondary">
+EXPLORE THE MARINA <span>↓</span>
+</a>
+</div>
+</div>
+
+<div class="hero-bottom">
+<span>WILMINGTON, CALIFORNIA</span>
+<span class="hero-line"></span>
+<span>FAMILY OWNED SINCE THE 1940s</span>
+</div>
+
+<div class="hero-coordinate">33°46′ N · 118°15′ W</div>
 </section>
 
-<section class="legacy section" id="story">
-<div class="section-label"><span>01</span> The family behind the marina</div>
-<div class="legacy-grid">
-<div class="legacy-copy">
-<p class="eyebrow">A waterfront legacy</p>
-<h2>Four generations.<br><em>One enduring home.</em></h2>
-<p class="standfirst">Cerritos Yacht Anchorage is an independent, family-run marina and boatyard on the Cerritos Channel in the Port of Los Angeles.</p>
-<p>Our story began in the 1940s, when Ed Rimkus—known as Eddie—and his father helped shape this waterfront property into a small marina and boatyard. The business passed through the family, with each generation adding its own chapter to the place we care for today.</p>
-<p>Some know the boatyard as Eddie’s Marine Service, a name that honors our grandfather and the personal service he established. Today, that same spirit lives on in the people, the work and the relationships built here.</p>
-<a class="text-cta" href="https://cerritosyacht.com/about-us/" target="_blank" rel="noopener">Explore our family history <span>↗</span></a>
+<!-- FAMILY HISTORY -->
+<section class="story section" id="story">
+
+<div class="section-label">
+<span>01</span>
+THE FAMILY BEHIND THE MARINA
 </div>
-<figure class="legacy-figure">
-<div class="photo-frame"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png" alt="The marina at Cerritos Yacht Anchorage" loading="lazy"></div>
-<figcaption><span>Our waterfront</span><span>Wilmington, California</span></figcaption>
-<div class="photo-index">A PLACE BUILT TO LAST <b>01 — 04</b></div>
-</figure>
+
+<div class="story-grid">
+
+<div class="story-copy">
+<span class="eyebrow">A WATERFRONT LEGACY</span>
+
+<h2>
+Some places are built.<br>
+Others are<br>
+<em>built to last.</em>
+</h2>
+
+<p class="lead">
+Cerritos Yacht Anchorage is an independent, family-run
+marina and boatyard on the Cerritos Channel in the
+Port of Los Angeles.
+</p>
+
+<p>
+Our story began in the 1940s, when Ed Rimkus, known as
+Eddie, and his father helped shape this waterfront property
+into a small marina and boatyard.
+</p>
+
+<p>
+Eddie and his wife ran the business before passing it
+to their daughter JoAnn. The business continued through
+the family, with each generation contributing to the
+marina's history.
+</p>
+
+<p>
+Some people know our boatyard as Eddie's Marine Service.
+The name honors our grandfather and the personal service
+he established for the boating community.
+</p>
+
+<a class="text-link" href="https://cerritosyacht.com/about-us/">
+DISCOVER OUR HISTORY <span>↗</span>
+</a>
+</div>
+
+<div class="story-visual">
+<div class="story-image-frame">
+<img
+src="https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png"
+alt="Cerritos Yacht Anchorage marina"
+loading="lazy"
+>
+</div>
+
+<div class="image-caption">
+<span>OUR WATERFRONT</span>
+<span>WILMINGTON, CALIFORNIA</span>
+</div>
+
+<div class="story-date">1940s <span>—</span> TODAY</div>
+</div>
+
 </div>
 </section>
 
-<section class="marina-story" id="marina">
-<div class="marina-photo"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Masthead-sheaves-replacement-min-600x370.jpg" alt="Masthead sheave replacement and rigging service" loading="lazy"></div>
-<div class="marina-text">
-<p class="eyebrow light">A personal approach</p>
-<h2>Good people.<br><em>Work you can trust.</em></h2>
-<p>We know a boat is more than a vessel. It’s time on the water, a hard-earned investment and the freedom to go where the day takes you. Our team brings practical experience and a personal touch to every job.</p>
-<a class="text-cta light-cta" href="#contact">Get to know us <span>→</span></a>
-<div class="marina-stamp">LOCAL<br><b>BY</b><br>LEGACY</div>
+<!-- MARINA FEATURE -->
+<section class="marina-feature" id="marina">
+
+<div class="marina-image">
+<img
+src="https://cerritosyacht.com/wp-content/uploads/2020/03/Masthead-sheaves-replacement-min-600x370.jpg"
+alt="Marine maintenance work at Cerritos Yacht Anchorage"
+loading="lazy"
+>
 </div>
+
+<div class="marina-copy">
+<span class="eyebrow light">THE CERRITOS DIFFERENCE</span>
+
+<h2>
+Personal service.<br>
+<em>Practical experience.</em>
+</h2>
+
+<p>
+We know a boat is more than a vessel. It's an investment,
+a passion and a way of life. Our team brings hands-on
+experience and a personal approach to every customer
+and every project.
+</p>
+
+<a href="#contact" class="light-link">
+LET'S TALK ABOUT YOUR BOAT <span>↗</span>
+</a>
+</div>
+
 </section>
 
+<!-- SERVICES -->
 <section class="services section" id="services">
-<div class="section-label"><span>02</span> Skilled hands, practical experience</div>
+
+<div class="section-label">
+<span>02</span>
+MARINA &amp; BOATYARD SERVICES
+</div>
+
 <div class="section-heading">
-<div><p class="eyebrow">Marina &amp; boatyard services</p><h2>From the waterline<br><em>to the masthead.</em></h2></div>
-<p>From a dependable berth to specialized maintenance and repair, our facility brings essential services together in one location.</p>
+<div>
+<span class="eyebrow">SKILLED HANDS. REAL EXPERIENCE.</span>
+<h2>
+Care for your vessel.<br>
+<em>From bow to stern.</em>
+</h2>
 </div>
+
+<p>
+From dependable berthing to specialized maintenance
+and repair, our facility brings essential marine
+services together in one location.
+</p>
+</div>
+
 <div class="service-grid">
-<article class="service-card"><div class="service-image"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Keel-repairs1-min-600x370.jpg" alt="Keel repair work" loading="lazy"><span>01</span></div><div class="service-copy"><h3>Keel &amp; hull repairs</h3><p>Hands-on repair work to help keep your vessel sound and seaworthy.</p></div></article>
-<article class="service-card"><div class="service-image"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Gelcoat-repairs3-600x370.jpg" alt="Gelcoat repair work" loading="lazy"><span>02</span></div><div class="service-copy"><h3>Gelcoat restoration</h3><p>Professional attention to hull damage, surface repairs and finish work.</p></div></article>
-<article class="service-card"><div class="service-image"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Hull-painting2-min-600x370.jpg" alt="Hull painting at the boatyard" loading="lazy"><span>03</span></div><div class="service-copy"><h3>Hull painting</h3><p>Bottom maintenance and painting to protect your boat below the waterline.</p></div></article>
-<article class="service-card"><div class="service-image"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Engine-exhaust-repairs2-min-600x370.jpg" alt="Marine engine exhaust repairs" loading="lazy"><span>04</span></div><div class="service-copy"><h3>Engine &amp; exhaust</h3><p>Marine engine maintenance, exhaust repairs and repower support.</p></div></article>
-<article class="service-card"><div class="service-image"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Outdrive-painting-and-service2-min-600x370.jpg" alt="Outdrive service and painting" loading="lazy"><span>05</span></div><div class="service-copy"><h3>Outdrive service</h3><p>Service and maintenance for outdrives and related propulsion components.</p></div></article>
-<article class="service-card"><div class="service-image"><img src="https://cerritosyacht.com/wp-content/uploads/2020/03/before-and-after-of-bottom-paint1-min-600x370.jpg" alt="Before and after bottom paint" loading="lazy"><span>06</span></div><div class="service-copy"><h3>Bottom painting</h3><p>Haul, preparation and bottom-paint services to keep you ready to cruise.</p></div></article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Keel-repairs1-min-600x370.jpg" alt="Keel repairs" loading="lazy">
+<span>01</span>
 </div>
-<div class="service-bottom"><p>Also available: haul &amp; launch, thru-hulls, shaft and prop work, generator lifts and a 15-ton crane.</p><a class="button outline" href="https://cerritosyacht.com/boatyard-services/" target="_blank" rel="noopener">View boatyard services <span>↗</span></a></div>
+<div class="service-copy">
+<h3>Keel &amp; Hull Repairs</h3>
+<p>Repair work and maintenance to help protect your vessel.</p>
+</div>
+</article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Gelcoat-repairs3-600x370.jpg" alt="Gelcoat repairs" loading="lazy">
+<span>02</span>
+</div>
+<div class="service-copy">
+<h3>Gelcoat Restoration</h3>
+<p>Hull damage, gelcoat repairs and surface restoration.</p>
+</div>
+</article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Hull-painting2-min-600x370.jpg" alt="Hull painting" loading="lazy">
+<span>03</span>
+</div>
+<div class="service-copy">
+<h3>Hull &amp; Bottom Painting</h3>
+<p>Bottom maintenance and painting to protect your hull.</p>
+</div>
+</article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Engine-exhaust-repairs2-min-600x370.jpg" alt="Marine engine exhaust repairs" loading="lazy">
+<span>04</span>
+</div>
+<div class="service-copy">
+<h3>Engine &amp; Exhaust</h3>
+<p>Marine engine maintenance, exhaust repairs and repowers.</p>
+</div>
+</article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://cerritosyacht.com/wp-content/uploads/2020/03/Outdrive-painting-and-service2-min-600x370.jpg" alt="Outdrive service" loading="lazy">
+<span>05</span>
+</div>
+<div class="service-copy">
+<h3>Outdrive Service</h3>
+<p>Outdrive service, maintenance and painting.</p>
+</div>
+</article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://cerritosyacht.com/wp-content/uploads/2020/03/before-and-after-of-bottom-paint1-min-600x370.jpg" alt="Before and after bottom painting" loading="lazy">
+<span>06</span>
+</div>
+<div class="service-copy">
+<h3>Haul &amp; Launch</h3>
+<p>Hauling and launching services with our 15-ton crane.</p>
+</div>
+</article>
+
+</div>
+
+<div class="services-footer">
+<p>Have a project in mind? Let's discuss what your boat needs.</p>
+<a href="https://cerritosyacht.com/boatyard-services/" class="button button-dark">
+VIEW BOATYARD SERVICES ↗
+</a>
+</div>
+
 </section>
 
+<!-- AMENITIES -->
 <section class="amenities section" id="amenities">
-<div class="amenity-heading"><div class="section-label light-label"><span>03</span> Thoughtful essentials</div><p class="eyebrow light">The facility</p><h2>Settle in.<br><em>Feel at home.</em></h2><p>Our facility is designed to make time at the marina straightforward, comfortable and secure.</p></div>
-<div class="amenity-grid">
-<div><b>01</b><span>Water &amp; electricity</span></div><div><b>02</b><span>Restrooms &amp; showers</span></div>
-<div><b>03</b><span>Gated facility &amp; CCTV</span></div><div><b>04</b><span>Slip dock boxes</span></div>
-<div><b>05</b><span>Lockers</span></div><div><b>06</b><span>Permitted parking</span></div>
-<div><b>07</b><span>15-ton haul-out crane</span></div>
+
+<div class="amenities-intro">
+<span class="eyebrow light">A PLACE TO KEEP YOUR BOAT</span>
+
+<h2>
+More than a slip.<br>
+<em>A place to belong.</em>
+</h2>
+
+<p>
+Our waterfront facility combines practical amenities,
+security and a welcoming boating community.
+</p>
+
+<a href="https://cerritosyacht.com/marina-services/" class="light-link">
+EXPLORE MARINA SERVICES ↗
+</a>
 </div>
+
+<div class="amenities-list">
+<div><span>01</span><strong>Water &amp; Electricity</strong></div>
+<div><span>02</span><strong>Restrooms &amp; Showers</strong></div>
+<div><span>03</span><strong>15-Ton Crane</strong></div>
+<div><span>04</span><strong>Gated Security</strong></div>
+<div><span>05</span><strong>Video Surveillance</strong></div>
+<div><span>06</span><strong>Slip Dock Boxes</strong></div>
+<div><span>07</span><strong>Lockers</strong></div>
+<div><span>08</span><strong>Permitted Parking</strong></div>
+</div>
+
 </section>
 
+<!-- LAYERED COMPASS AND TESTIMONIALS -->
 <section class="testimonials section" id="testimonials">
-<div class="section-label"><span>04</span> Good words from good company</div>
-<div class="testimonial-layout">
-<div class="testimonial-intro"><p class="eyebrow">The boating community</p><h2>Reputation is<br><em>earned, not claimed.</em></h2><p>We’re proud of the relationships built here over the years. These are a few words shared by customers who know our team and our work.</p>
-<div class="review-controls"><button id="prev" aria-label="Previous review">←</button><span><b id="review-index">01</b><i>/</i>05</span><button id="next" aria-label="Next review">→</button></div>
+
+<div class="section-label">
+<span>03</span>
+WORD OF MOUTH
 </div>
+
+<div class="testimonial-heading">
+<span class="eyebrow">FROM THE BOATING COMMUNITY</span>
+<h2>
+Good people leave<br>
+<em>a lasting impression.</em>
+</h2>
+</div>
+
+<div class="testimonial-stage">
+
+<div class="compass-artwork">
+<img
+src="assets/original-compass.png"
+alt="Cerritos Yacht Anchorage compass artwork"
+loading="lazy"
+>
+</div>
+
 <div class="testimonial-card">
-<div class="compass-wrap" aria-hidden="true">
-<svg class="compass" viewBox="0 0 320 320">
-<defs><linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0d9a8"/><stop offset=".48" stop-color="#a47b42"/><stop offset="1" stop-color="#e8c98d"/></linearGradient></defs>
-<circle cx="160" cy="160" r="151" fill="none" stroke="url(#brass)" stroke-width="2"/><circle cx="160" cy="160" r="143" fill="none" stroke="#b89359" stroke-width=".7"/><circle cx="160" cy="160" r="125" fill="none" stroke="#b89359" stroke-width="1.2"/><circle cx="160" cy="160" r="116" fill="none" stroke="#b89359" stroke-width=".6"/>
-<g stroke="#b89359" stroke-width="1"><path d="M160 10v18M160 300v10M10 160h18M300 160h10"/><path d="M54 54l12 12M254 254l12 12M266 54l-12 12M66 254l-12 12"/></g>
-<g stroke="#b89359" stroke-width=".7" opacity=".9"><path d="M160 20v12M160 288v12M20 160h12M288 160h12" transform="rotate(15 160 160)"/><path d="M160 20v12M160 288v12M20 160h12M288 160h12" transform="rotate(30 160 160)"/><path d="M160 20v12M160 288v12M20 160h12M288 160h12" transform="rotate(45 160 160)"/><path d="M160 20v12M160 288v12M20 160h12M288 160h12" transform="rotate(60 160 160)"/></g>
-<g fill="#b89359" font-family="Georgia,serif" font-size="13" text-anchor="middle"><text x="160" y="13">N</text><text x="160" y="316">S</text><text x="307" y="165">E</text><text x="13" y="165">W</text></g>
-<g transform="translate(160 160)"><path d="M0-111L13-16 0-27-13-16Z" fill="#e7d0a0" stroke="#936e3c"/><path d="M0 111L13 16 0 27-13 16Z" fill="#163748" stroke="#b89359"/><path d="M111 0L16 13 27 0 16-13Z" fill="#e7d0a0" stroke="#936e3c"/><path d="M-111 0L-16 13-27 0-16-13Z" fill="#163748" stroke="#b89359"/>
-<path d="M0-78L8-10 0-18-8-10Z" fill="#f2e4c5"/><path d="M0 78L8 10 0 18-8 10Z" fill="#997746"/><path d="M78 0L10 8 18 0 10-8Z" fill="#f2e4c5"/><path d="M-78 0L-10 8-18 0-10-8Z" fill="#997746"/>
-<path d="M0-51L6-6 0-13-6-6Z" fill="#b89359"/><path d="M0 51L6 6 0 13-6 6Z" fill="#e3c58b"/><path d="M51 0L6 6 13 0 6-6Z" fill="#b89359"/><path d="M-51 0L-6 6-13 0-6-6Z" fill="#e3c58b"/>
-<circle r="13" fill="#0e2a3a" stroke="#d1b27a" stroke-width="2"/><circle r="4" fill="#e8ce98"/></g>
-</svg>
-<span class="compass-caption">TRUE NORTH · CERRITOS</span>
+
+<div class="quote-mark">“</div>
+
+<div class="testimonial-track">
+
+<article class="testimonial active">
+<p>
+The most honest and friendliest shop, Mike is an awesome
+guy, very thorough and will work with your time and budget.
+They are on time with their schedules. He gave me so much
+advice for my boat and personally drove me to my slip on
+a Saturday. He goes above and beyond.
+</p>
+<span>JOHN B.</span>
+</article>
+
+<article class="testimonial">
+<p>
+I had to put in a transducer in my boat and my experience
+from start to finish was excellent. The secretary was
+very informative and answered all my questions. I brought
+the boat in and they did a clean professional job.
+</p>
+<span>JASON B.</span>
+</article>
+
+<article class="testimonial">
+<p>
+All I can say about Eddie's Marine is that they are the
+best and most honest boatyard in the Long Beach area.
+Lupe and his crew did a perfect job, on time and correct.
+</p>
+<span>TLW F.</span>
+</article>
+
+<article class="testimonial">
+<p>
+Very happy with the service I received. Mike is a great
+person and easy to work with. The shipyard performs
+quality work at a fair price. The marina is well
+maintained and I received a great slip here.
+</p>
+<span>EL CHOP O.</span>
+</article>
+
+<article class="testimonial">
+<p>
+I love this marina. They are very professional and down
+to earth. Security is great, and you couldn't ask for
+nicer people who understand boats and the challenges
+that can arise when owning a boat.
+</p>
+<span>COLLINS R.</span>
+</article>
+
 </div>
-<div class="review-content"><span class="quote-mark">“</span><blockquote id="review-quote">The most honest and friendliest shop, Mike is an awesome guy very thorough and will work with your time and budget. They are on time with their schedules, he gave me so much advise for my boat and he personally drove me to my slip on a Saturday. He goes above and beyond. Don’t hesitate to talk to him and he will get the job done.</blockquote><div class="review-by"><b id="review-author">John B.</b><small>Customer review</small></div></div>
+
+<div class="testimonial-controls">
+<button id="previousReview" aria-label="Previous review">←</button>
+<span id="reviewCount">01 / 05</span>
+<button id="nextReview" aria-label="Next review">→</button>
 </div>
+
 </div>
+
+<div class="testimonial-caption">
+CERRITOS YACHT ANCHORAGE <span>·</span> BUILT ON TRUST SINCE THE 1940s
+</div>
+
+</div>
+
 </section>
 
-<section class="berth-cta"><div class="berth-inner"><p class="eyebrow light">Your place on the water</p><h2>Make room for<br><em>what moves you.</em></h2><p>Ask our team about berthing and availability, or begin with the application form.</p><a class="button brass" href="https://cerritosyacht.com/application-form/" target="_blank" rel="noopener">Start a berth inquiry <span>↗</span></a></div></section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
 
-<section class="contact section" id="contact"><div class="section-label"><span>05</span> Come find us</div><div class="contact-layout"><div><p class="eyebrow">We’d be glad to hear from you</p><h2>See you<br><em>at the water.</em></h2><p class="contact-lede">Questions about a slip, a haul-out or service for your vessel? Get in touch with our team.</p></div>
-<div class="contact-info"><div><small>VISIT</small><p>1400 Anchorage Road<br>Wilmington, CA 90744<br><span>Berth 205C</span></p></div><div><small>CALL</small><p><a href="tel:+13108344737">(310) 834-4737</a></p></div><div><small>EMAIL</small><p><a href="mailto:contact@cerritosyacht.com">contact@cerritosyacht.com</a></p></div><div><small>OFFICE HOURS</small><p>Monday – Friday<br>9:00 AM – 5:00 PM</p></div><a class="button dark" href="https://maps.google.com/?q=1400+Anchorage+Rd+Wilmington+CA+90744" target="_blank" rel="noopener">Get directions ↗</a></div></div></section>
+<div class="contact-content">
+<span class="eyebrow light">YOUR NEXT CHAPTER STARTS HERE</span>
+
+<h2>
+Let's get you<br>
+<em>on the water.</em>
+</h2>
+
+<p>
+Questions about berthing, boatyard services or our facility?
+We'd love to hear from you.
+</p>
+
+<div class="contact-actions">
+<a href="tel:+13108344737" class="button button-gold">
+CALL (310) 834-4737
+</a>
+
+<a href="mailto:contact@cerritosyacht.com" class="contact-email">
+SEND US AN EMAIL ↗
+</a>
+</div>
+</div>
+
+</section>
+
 </main>
 
-<footer class="footer"><a class="footer-brand" href="#top">Cerritos Yacht Anchorage</a><span>Independent, family-run marina &amp; boatyard · Wilmington, California</span><a href="#top">Back to top ↑</a><small>© <span id="year"></span> Cerritos Yacht Anchorage, Inc.</small></footer>
-<button class="effect-toggle" id="effect-toggle" type="button" aria-pressed="false"><i></i> Logo effect <b>Off</b></button><div class="confetti-layer" id="confetti-layer" aria-hidden="true"></div>
+<!-- FOOTER -->
+<footer class="footer">
+
+<div class="footer-main">
+
+<div class="footer-brand">
+<img src="assets/cerritos-logo-no-text.png" alt="Cerritos Yacht Anchorage">
+<h3>CERRITOS YACHT ANCHORAGE</h3>
+<p>Marina &amp; Boatyard · Wilmington, California</p>
+<small>A family legacy on the water since the 1940s.</small>
+</div>
+
+<div class="footer-column">
+<h4>EXPLORE</h4>
+<a href="#story">Our Story</a>
+<a href="#marina">The Marina</a>
+<a href="#services">Services</a>
+<a href="#amenities">Amenities</a>
+<a href="#testimonials">Testimonials</a>
+</div>
+
+<div class="footer-column">
+<h4>CONTACT</h4>
+<a href="tel:+13108344737">(310) 834-4737</a>
+<a href="mailto:contact@cerritosyacht.com">contact@cerritosyacht.com</a>
+<span>1400 Anchorage Rd.</span>
+<span>Wilmington, CA 90744</span>
+<span>Monday–Friday · 9AM–5PM</span>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<span>© 2026 CERRITOS YACHT ANCHORAGE, INC.</span>
+<a href="#home">BACK TO TOP ↑</a>
+</div>
+
+</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
