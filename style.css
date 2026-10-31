@@ -1,22 +1,17 @@
-/* =========================================
-CERRITOS YACHT ANCHORAGE
-Premium Editorial Marina Design
-========================================= */
-
 :root {
 --navy: #102b3b;
---navy-dark: #091e2b;
---navy-light: #183d50;
+--navy-dark: #081e2b;
+--navy-light: #1b4052;
 
---cream: #f5f2eb;
+--cream: #f4f0e7;
 --ivory: #fbfaf6;
---sand: #e7e0d3;
+--sand: #e5ddcf;
 
 --gold: #b99b68;
---gold-light: #d4bd91;
+--gold-light: #d5bd92;
 
 --ink: #172b35;
---muted: #66747a;
+--muted: #69777b;
 
 --serif: "Playfair Display", Georgia, serif;
 --sans: "DM Sans", Arial, sans-serif;
@@ -35,7 +30,7 @@ box-sizing: border-box;
 
 html {
 scroll-behavior: smooth;
-scroll-padding-top: 100px;
+scroll-padding-top: 90px;
 }
 
 body {
@@ -79,7 +74,7 @@ justify-content: center;
 gap: 15px;
 
 background: var(--navy-dark);
-color: #d9d7d0;
+color: #dedbd4;
 
 font-size: 9px;
 font-weight: 600;
@@ -87,7 +82,7 @@ letter-spacing: 2px;
 text-transform: uppercase;
 }
 
-.top-strip-divider {
+.top-divider {
 color: var(--gold);
 }
 
@@ -95,35 +90,32 @@ color: var(--gold);
 /* HEADER */
 
 .site-header {
+position: absolute;
+top: 35px;
+left: 0;
+z-index: 100;
+
 width: 100%;
 height: 95px;
-
 padding: 0 var(--page-padding);
 
 display: flex;
 align-items: center;
 justify-content: space-between;
 
-position: absolute;
-top: 35px;
-left: 0;
-z-index: 100;
-
 color: white;
+border-bottom: 1px solid rgba(255,255,255,.17);
 
-border-bottom: 1px solid rgba(255,255,255,.19);
-
-transition: background .3s ease, height .3s ease;
+transition: .3s ease;
 }
 
 .site-header.scrolled {
 position: fixed;
 top: 0;
-
 height: 76px;
 
-background: rgba(9, 30, 43, .97);
-backdrop-filter: blur(15px);
+background: rgba(8,30,43,.97);
+backdrop-filter: blur(14px);
 
 border-bottom: 1px solid rgba(255,255,255,.08);
 }
@@ -149,13 +141,12 @@ gap: 4px;
 .brand-name strong {
 font-size: 16px;
 letter-spacing: 3px;
-font-weight: 600;
 }
 
 .brand-name small {
+color: var(--gold-light);
 font-size: 8px;
 letter-spacing: 3px;
-color: var(--gold-light);
 }
 
 .main-navigation {
@@ -165,12 +156,12 @@ gap: clamp(17px, 2.5vw, 38px);
 }
 
 .main-navigation > a {
+color: rgba(255,255,255,.88);
+
 font-size: 10px;
 font-weight: 600;
 letter-spacing: 1.2px;
 text-transform: uppercase;
-
-color: rgba(255,255,255,.88);
 
 transition: color .25s ease;
 }
@@ -182,7 +173,6 @@ color: var(--gold-light);
 .main-navigation .nav-contact {
 padding: 14px 18px;
 border: 1px solid rgba(212,189,145,.75);
-color: white;
 }
 
 .nav-contact span {
@@ -192,9 +182,89 @@ color: var(--gold-light);
 
 .menu-toggle {
 display: none;
-background: transparent;
-border: 0;
-cursor: pointer;
+}
+
+
+/* GENERAL */
+
+.section-padding {
+padding: 120px var(--page-padding);
+}
+
+.eyebrow {
+display: flex;
+align-items: center;
+gap: 14px;
+
+color: var(--gold);
+
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 2.5px;
+}
+
+.light-eyebrow {
+color: var(--gold-light);
+}
+
+.eyebrow-line {
+width: 34px;
+height: 1px;
+background: var(--gold);
+}
+
+.section-number {
+color: var(--gold);
+font-size: 10px;
+}
+
+.editorial-heading {
+font-family: var(--serif);
+font-size: clamp(42px, 5vw, 67px);
+font-weight: 400;
+line-height: 1.13;
+letter-spacing: -1.5px;
+}
+
+.editorial-heading em {
+color: var(--gold);
+font-weight: 400;
+}
+
+.light-heading em {
+color: var(--gold-light);
+}
+
+
+/* BUTTONS */
+
+.button {
+min-height: 55px;
+padding: 0 24px;
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 1.5px;
+
+transition: .3s ease;
+}
+
+.button:hover {
+transform: translateY(-3px);
+}
+
+.button-light {
+color: var(--navy-dark);
+background: var(--cream);
+}
+
+.button-light:hover {
+background: var(--gold-light);
 }
 
 
@@ -218,13 +288,11 @@ color: white;
 position: absolute;
 inset: 0;
 
-background-image:
-url("https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png");
+background-image: url("https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png");
 
 background-size: cover;
 background-position: center 52%;
 
-transform: scale(1.025);
 animation: heroReveal 1.5s ease forwards;
 }
 
@@ -233,17 +301,8 @@ position: absolute;
 inset: 0;
 
 background:
-linear-gradient(
-90deg,
-rgba(5, 22, 33, .91) 0%,
-rgba(5, 22, 33, .74) 43%,
-rgba(5, 22, 33, .22) 100%
-),
-linear-gradient(
-0deg,
-rgba(5, 22, 33, .55),
-transparent 35%
-);
+linear-gradient(90deg, rgba(5,22,33,.91), rgba(5,22,33,.68) 44%, rgba(5,22,33,.19)),
+linear-gradient(0deg, rgba(5,22,33,.55), transparent 40%);
 }
 
 .hero-content {
@@ -258,39 +317,6 @@ padding: 130px var(--page-padding) 100px;
 animation: fadeUp 1s ease both;
 }
 
-.eyebrow {
-display: flex;
-align-items: center;
-gap: 14px;
-
-font-size: 9px;
-font-weight: 700;
-letter-spacing: 2.6px;
-
-color: var(--gold);
-}
-
-.light-eyebrow {
-color: var(--gold-light);
-}
-
-.eyebrow-line {
-width: 34px;
-height: 1px;
-display: inline-block;
-background: var(--gold);
-}
-
-.dark-line {
-background: var(--gold);
-}
-
-.section-number {
-font-size: 10px;
-color: var(--gold);
-letter-spacing: 1px;
-}
-
 .hero h1 {
 margin-top: 35px;
 
@@ -301,21 +327,13 @@ line-height: 1.02;
 letter-spacing: -3px;
 }
 
-.hero h1 em,
-.section-heading h2 em,
-.intro-heading h2 em,
-.heritage-content h2 em,
-.amenities-intro h2 em,
-.berth-content h2 em,
-.testimonials-heading h2 em,
-.contact-content h2 em {
-font-weight: 400;
+.hero h1 em {
 color: var(--gold-light);
+font-weight: 400;
 }
 
 .hero-description {
 max-width: 480px;
-
 margin-top: 30px;
 
 color: rgba(255,255,255,.8);
@@ -328,41 +346,7 @@ line-height: 1.9;
 display: flex;
 align-items: center;
 gap: 35px;
-
 margin-top: 42px;
-}
-
-.button {
-min-height: 55px;
-padding: 0 24px;
-
-display: inline-flex;
-align-items: center;
-justify-content: center;
-gap: 25px;
-
-font-size: 9px;
-font-weight: 700;
-letter-spacing: 1.6px;
-
-transition: background .3s ease, color .3s ease, transform .3s ease;
-}
-
-.button:hover {
-transform: translateY(-3px);
-}
-
-.button-light {
-color: var(--navy-dark);
-background: var(--cream);
-}
-
-.button-light:hover {
-background: var(--gold-light);
-}
-
-.button span {
-font-size: 15px;
 }
 
 .hero-text-link {
@@ -371,11 +355,6 @@ font-size: 10px;
 font-weight: 600;
 letter-spacing: 1px;
 text-transform: uppercase;
-}
-
-.hero-text-link span {
-color: var(--gold-light);
-margin-left: 10px;
 }
 
 .hero-bottom {
@@ -393,14 +372,14 @@ justify-content: space-between;
 
 border-top: 1px solid rgba(255,255,255,.2);
 
+color: rgba(255,255,255,.7);
+
 font-size: 8px;
 font-weight: 600;
 letter-spacing: 2px;
-
-color: rgba(255,255,255,.7);
 }
 
-.hero-bottom-center {
+.hero-bottom a {
 color: var(--gold-light);
 }
 
@@ -419,50 +398,15 @@ color: rgba(255,255,255,.7);
 
 /* INTRO */
 
-.section-padding {
-padding: 120px var(--page-padding);
-}
-
 .intro-section {
 background: var(--ivory);
-}
-
-.intro-label {
-display: flex;
-align-items: center;
-gap: 14px;
-
-font-size: 9px;
-font-weight: 700;
-letter-spacing: 2.5px;
-
-color: var(--muted);
 }
 
 .intro-grid {
 display: grid;
 grid-template-columns: 1.2fr .8fr;
 gap: 10%;
-
 margin-top: 55px;
-}
-
-.intro-heading h2,
-.heritage-content h2,
-.amenities-intro h2,
-.testimonials-heading h2 {
-font-family: var(--serif);
-font-size: clamp(40px, 5vw, 65px);
-line-height: 1.14;
-font-weight: 400;
-letter-spacing: -1.5px;
-}
-
-.intro-heading h2 em,
-.heritage-content h2 em,
-.amenities-intro h2 em,
-.testimonials-heading h2 em {
-color: var(--gold);
 }
 
 .intro-copy {
@@ -486,7 +430,6 @@ line-height: 2;
 
 .underlined-link {
 display: inline-flex;
-align-items: center;
 gap: 18px;
 
 margin-top: 30px;
@@ -501,35 +444,27 @@ letter-spacing: 1.5px;
 
 .underlined-link span {
 color: var(--gold);
-font-size: 16px;
 }
 
 
-/* FULL-WIDTH IMAGE FEATURE */
+/* IMAGE FEATURE */
 
 .image-feature {
 height: 490px;
 position: relative;
 overflow: hidden;
-
 background: var(--navy);
 }
 
-.image-feature-photo {
-position: absolute;
-inset: 0;
-
-background-image:
-linear-gradient(0deg, rgba(5,20,30,.4), transparent 60%),
-url("https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png");
-
-background-size: cover;
-background-position: center 48%;
-
+.image-feature img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center 48%;
 transition: transform 1s ease;
 }
 
-.image-feature:hover .image-feature-photo {
+.image-feature:hover img {
 transform: scale(1.035);
 }
 
@@ -543,7 +478,6 @@ display: flex;
 justify-content: space-between;
 
 color: white;
-
 font-size: 9px;
 font-weight: 600;
 letter-spacing: 2px;
@@ -560,7 +494,6 @@ background: var(--cream);
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 10%;
-
 align-items: center;
 }
 
@@ -568,23 +501,18 @@ align-items: center;
 position: relative;
 }
 
-.heritage-image {
+.heritage-image-wrap img {
 width: 100%;
 min-height: 500px;
-
 object-fit: cover;
-object-position: center;
 }
 
-.heritage-image-note {
+.image-label {
 position: absolute;
-bottom: -1px;
-right: -1px;
+bottom: 0;
+right: 0;
 
-display: flex;
-gap: 25px;
-
-padding: 19px 25px;
+padding: 18px 22px;
 
 background: var(--navy);
 color: white;
@@ -595,10 +523,6 @@ letter-spacing: 1.6px;
 
 .heritage-content h2 {
 margin-top: 30px;
-}
-
-.heritage-content h2 em {
-display: inline-block;
 }
 
 .heritage-lead {
@@ -632,7 +556,7 @@ font-weight: 700;
 letter-spacing: 2px;
 }
 
-.signature-line {
+.heritage-signature span {
 width: 40px;
 height: 1px;
 background: var(--gold);
@@ -646,7 +570,7 @@ background: var(--navy);
 color: white;
 }
 
-.section-heading .eyebrow {
+.services-section .editorial-heading em {
 color: var(--gold-light);
 }
 
@@ -659,17 +583,8 @@ justify-content: space-between;
 gap: 40px;
 }
 
-.section-heading h2 {
-font-family: var(--serif);
-font-size: clamp(42px, 5vw, 67px);
-line-height: 1.13;
-font-weight: 400;
-letter-spacing: -1px;
-}
-
 .section-heading-row > p {
 max-width: 290px;
-
 padding-bottom: 7px;
 
 color: rgba(255,255,255,.65);
@@ -679,9 +594,8 @@ line-height: 1.9;
 
 .services-grid {
 display: grid;
-grid-template-columns: 1.15fr 1fr 1fr;
+grid-template-columns: repeat(3, 1fr);
 gap: 22px;
-
 margin-top: 65px;
 }
 
@@ -696,28 +610,20 @@ transform: translateY(-8px);
 background: #21475a;
 }
 
-.service-image {
+.service-photo {
 height: 265px;
-
-background-size: cover;
-background-position: center;
-
-transition: background-size .5s ease;
+overflow: hidden;
 }
 
-.marina-service-image {
-background-image:
-url("https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png");
+.service-photo img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform .7s ease;
 }
 
-.boatyard-service-image {
-background-image:
-url("https://cerritosyacht.com/wp-content/uploads/2020/03/Masthead-sheaves-replacement-min-600x370.jpg");
-}
-
-.bottom-painting-image {
-background-image:
-url("https://cerritosyacht.com/wp-content/uploads/2020/04/Photo-5-450x350.png");
+.service-card:hover .service-photo img {
+transform: scale(1.06);
 }
 
 .service-card-content {
@@ -741,7 +647,6 @@ font-weight: 400;
 
 .service-card p {
 min-height: 70px;
-
 margin-top: 13px;
 
 color: rgba(255,255,255,.66);
@@ -760,9 +665,126 @@ font-weight: 700;
 letter-spacing: 1.5px;
 }
 
-.service-card a span {
+.service-card a:hover {
 color: var(--gold-light);
-margin-left: 8px;
+}
+
+
+/* BOATYARD GALLERY */
+
+.gallery-section {
+background: var(--ivory);
+}
+
+.gallery-heading {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+gap: 40px;
+
+margin-top: 35px;
+}
+
+.gallery-heading p {
+max-width: 320px;
+
+color: var(--muted);
+font-size: 13px;
+line-height: 1.9;
+}
+
+.work-gallery {
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+grid-auto-rows: 250px;
+gap: 16px;
+
+margin-top: 60px;
+}
+
+.gallery-item {
+position: relative;
+overflow: hidden;
+background: var(--navy);
+}
+
+.gallery-item.gallery-large {
+grid-column: span 3;
+grid-row: span 2;
+}
+
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(3),
+.gallery-item:nth-child(4),
+.gallery-item:nth-child(5) {
+grid-column: span 3;
+}
+
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+
+transition: transform .8s ease;
+}
+
+.gallery-item:hover img {
+transform: scale(1.07);
+}
+
+.gallery-item::after {
+content: "";
+position: absolute;
+inset: 35% 0 0;
+
+background: linear-gradient(transparent, rgba(5,20,30,.85));
+pointer-events: none;
+}
+
+.gallery-item figcaption {
+position: absolute;
+bottom: 22px;
+left: 24px;
+right: 24px;
+z-index: 2;
+
+display: flex;
+align-items: center;
+gap: 14px;
+
+color: white;
+}
+
+.gallery-item figcaption span {
+color: var(--gold-light);
+font-size: 9px;
+letter-spacing: 1px;
+}
+
+.gallery-item figcaption strong {
+font-family: var(--serif);
+font-size: 20px;
+font-weight: 400;
+}
+
+.gallery-footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+margin-top: 30px;
+
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 1.5px;
+}
+
+.gallery-footer span {
+color: var(--muted);
+}
+
+.gallery-footer a {
+color: var(--gold);
 }
 
 
@@ -773,7 +795,7 @@ display: grid;
 grid-template-columns: .9fr 1.1fr;
 gap: 12%;
 
-background: var(--ivory);
+background: var(--cream);
 }
 
 .amenities-intro h2 {
@@ -782,7 +804,6 @@ margin-top: 35px;
 
 .amenities-intro p {
 max-width: 380px;
-
 margin-top: 25px;
 
 color: var(--muted);
@@ -802,7 +823,6 @@ grid-template-columns: 45px 1fr 20px;
 align-items: center;
 
 border-bottom: 1px solid #dedbd3;
-
 transition: padding .25s ease;
 }
 
@@ -810,25 +830,26 @@ transition: padding .25s ease;
 padding-left: 10px;
 }
 
-.amenity-index {
+.amenity-item > span {
 color: var(--gold);
 font-size: 9px;
-letter-spacing: 1px;
 }
 
-.amenity-item > span:nth-child(2) {
+.amenity-item strong {
 color: var(--navy);
 font-family: var(--serif);
 font-size: 18px;
+font-weight: 400;
 }
 
-.amenity-mark {
+.amenity-item b {
 color: var(--gold);
 font-size: 17px;
+font-weight: 400;
 }
 
 
-/* BERTH SECTION */
+/* BERTH */
 
 .berth-section {
 min-height: 570px;
@@ -840,14 +861,15 @@ background: var(--navy-dark);
 color: white;
 }
 
-.berth-image {
+.berth-photo {
 min-height: 570px;
+overflow: hidden;
+}
 
-background-image:
-url("https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png");
-
-background-size: cover;
-background-position: center;
+.berth-photo img {
+width: 100%;
+height: 100%;
+object-fit: cover;
 }
 
 .berth-content {
@@ -861,17 +883,17 @@ justify-content: center;
 .berth-content h2,
 .contact-content h2 {
 margin-top: 30px;
+color: white;
+}
 
-font-family: var(--serif);
-font-size: clamp(43px, 5vw, 66px);
-font-weight: 400;
-line-height: 1.13;
+.berth-content h2 em,
+.contact-content h2 em {
+color: var(--gold-light);
 }
 
 .berth-content p,
 .contact-content p {
 max-width: 440px;
-
 margin-top: 25px;
 
 color: rgba(255,255,255,.72);
@@ -918,8 +940,6 @@ margin-top: 65px;
 }
 
 .testimonial-card {
-position: relative;
-
 padding: 40px 38px;
 
 background: var(--ivory);
@@ -930,57 +950,50 @@ transition: transform .3s ease, box-shadow .3s ease;
 
 .testimonial-card:hover {
 transform: translateY(-5px);
-box-shadow: 0 18px 45px rgba(24, 43, 53, .08);
+box-shadow: 0 18px 45px rgba(24,43,53,.08);
 }
 
 .quote-mark {
 display: block;
-
 height: 40px;
+
+color: var(--gold);
 
 font-family: var(--serif);
 font-size: 64px;
 line-height: 1;
-
-color: var(--gold);
 }
 
 .testimonial-card p {
 margin-top: 20px;
 
+color: #3d4b50;
+
 font-family: var(--serif);
 font-size: 16px;
 line-height: 1.85;
-
-color: #3d4b50;
 }
 
 .review-author {
-display: flex;
-align-items: center;
-gap: 13px;
-
 margin-top: 28px;
+padding-top: 15px;
+
+border-top: 1px solid var(--sand);
+
+color: var(--navy);
 
 font-size: 9px;
 font-weight: 700;
 letter-spacing: 2px;
-
-color: var(--navy);
-}
-
-.review-line {
-width: 28px;
-height: 1px;
-background: var(--gold);
 }
 
 
-/* COMPASS */
+/* ORNATE COMPASS */
 
-.compass-decoration {
-width: 260px;
+.compass-feature {
+position: relative;
 
+width: min(100%, 560px);
 margin: 100px auto 0;
 
 display: flex;
@@ -988,27 +1001,190 @@ flex-direction: column;
 align-items: center;
 
 color: var(--gold);
-
-opacity: .8;
 }
 
-.compass-svg {
+.compass-rose {
+position: relative;
+
+width: 310px;
+height: 310px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.compass-outer-ring,
+.compass-inner-ring,
+.compass-dashed-ring {
+position: absolute;
+border-radius: 50%;
+pointer-events: none;
+}
+
+.compass-outer-ring {
+inset: 5px;
+border: 1px solid var(--gold);
+}
+
+.compass-outer-ring::before,
+.compass-outer-ring::after {
+content: "";
+position: absolute;
+inset: 8px;
+border: 1px solid rgba(185,155,104,.4);
+border-radius: 50%;
+}
+
+.compass-outer-ring::after {
+inset: -6px;
+border: 1px solid rgba(185,155,104,.4);
+}
+
+.compass-inner-ring {
+inset: 42px;
+border: 1px solid rgba(185,155,104,.8);
+}
+
+.compass-inner-ring::before {
+content: "";
+position: absolute;
+inset: 7px;
+border: 1px solid rgba(185,155,104,.35);
+border-radius: 50%;
+}
+
+.compass-dashed-ring {
+inset: 24px;
+border: 1px dashed rgba(185,155,104,.65);
+}
+
+.compass-art {
+position: relative;
+z-index: 2;
+
 width: 100%;
-height: auto;
+height: 100%;
 
-transition: transform 1.2s ease;
+overflow: visible;
 }
 
-.compass-decoration:hover .compass-svg {
-transform: rotate(12deg);
+.compass-rays {
+fill: var(--gold);
+}
+
+.compass-rays path:nth-child(even) {
+opacity: .45;
+}
+
+.compass-rays path:nth-child(odd) {
+opacity: .95;
+}
+
+.compass-center-ring {
+fill: var(--cream);
+stroke: var(--gold);
+stroke-width: 2;
+}
+
+.compass-center-dot {
+fill: var(--gold);
+}
+
+.compass-cardinal {
+position: absolute;
+z-index: 4;
+
+color: var(--navy);
+
+font-family: var(--serif);
+font-size: 15px;
+font-weight: 600;
+}
+
+.compass-cardinal.north {
+top: 14px;
+left: 50%;
+transform: translateX(-50%);
+}
+
+.compass-cardinal.south {
+bottom: 14px;
+left: 50%;
+transform: translateX(-50%);
+}
+
+.compass-cardinal.east {
+right: 15px;
+top: 50%;
+transform: translateY(-50%);
+}
+
+.compass-cardinal.west {
+left: 15px;
+top: 50%;
+transform: translateY(-50%);
+}
+
+.compass-degree {
+position: absolute;
+z-index: 4;
+
+color: rgba(185,155,104,.85);
+
+font-size: 7px;
+letter-spacing: 1px;
+}
+
+.degree-n {
+top: 48px;
+}
+
+.degree-e {
+right: 48px;
+}
+
+.degree-s {
+bottom: 48px;
+}
+
+.degree-w {
+left: 48px;
 }
 
 .compass-caption {
-margin-top: 18px;
+margin-top: 24px;
 
-font-size: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 18px;
+
+color: var(--navy);
+
+font-size: 9px;
 font-weight: 700;
 letter-spacing: 3px;
+}
+
+.compass-caption-line {
+width: 40px;
+height: 1px;
+background: var(--gold);
+}
+
+.compass-ornament {
+color: var(--gold);
+font-family: var(--serif);
+font-size: 24px;
+}
+
+.top-ornament {
+margin-bottom: 20px;
+}
+
+.bottom-ornament {
+margin-top: 18px;
 }
 
 
@@ -1028,21 +1204,22 @@ background: var(--navy-dark);
 color: white;
 }
 
-.contact-background {
+.contact-photo {
 position: absolute;
 inset: 0;
 
-background-image:
-linear-gradient(
-90deg,
-rgba(7, 27, 39, .95),
-rgba(7, 27, 39, .73),
-rgba(7, 27, 39, .55)
-),
-url("https://cerritosyacht.com/wp-content/uploads/2020/03/Masthead-sheaves-replacement-min-600x370.jpg");
+background-image: url("https://cerritosyacht.com/wp-content/uploads/2020/03/Engine-exhaust-repairs2-min-600x370.jpg");
 
 background-size: cover;
 background-position: center;
+}
+
+.contact-overlay {
+position: absolute;
+inset: 0;
+
+background:
+linear-gradient(90deg, rgba(7,27,39,.95), rgba(7,27,39,.73), rgba(7,27,39,.55));
 }
 
 .contact-content {
@@ -1060,14 +1237,14 @@ gap: 30px;
 margin-top: 35px;
 }
 
-.contact-email {
+.contact-actions > a:not(.button) {
+color: white;
 font-size: 9px;
 font-weight: 700;
 letter-spacing: 1.5px;
-color: white;
 }
 
-.contact-email:hover {
+.contact-actions > a:not(.button):hover {
 color: var(--gold-light);
 }
 
@@ -1075,10 +1252,10 @@ color: var(--gold-light);
 /* FOOTER */
 
 .site-footer {
+padding: 75px var(--page-padding) 0;
+
 background: #081c28;
 color: white;
-
-padding: 75px var(--page-padding) 0;
 }
 
 .footer-main {
@@ -1105,7 +1282,6 @@ object-fit: contain;
 display: flex;
 flex-direction: column;
 gap: 8px;
-
 padding-top: 7px;
 }
 
@@ -1115,9 +1291,9 @@ letter-spacing: 2px;
 }
 
 .footer-brand span {
+color: var(--gold-light);
 font-size: 8px;
 letter-spacing: 1.5px;
-color: var(--gold-light);
 }
 
 .footer-column {
@@ -1129,7 +1305,6 @@ gap: 14px;
 
 .footer-heading {
 margin-bottom: 7px;
-
 color: var(--gold-light);
 
 font-size: 9px;
@@ -1140,7 +1315,6 @@ letter-spacing: 2px;
 .footer-column a,
 .footer-column span:not(.footer-heading) {
 color: rgba(255,255,255,.65);
-
 font-size: 11px;
 line-height: 1.6;
 }
@@ -1171,12 +1345,11 @@ color: var(--gold-light);
 }
 
 
-/* FLOATING CONFETTI */
+/* CONFETTI */
 
 .confetti-layer {
 position: fixed;
 inset: 0;
-
 z-index: 150;
 
 pointer-events: none;
@@ -1185,9 +1358,6 @@ overflow: hidden;
 
 .confetti-piece {
 position: absolute;
-
-width: 27px;
-height: 27px;
 
 object-fit: contain;
 
@@ -1200,7 +1370,6 @@ animation: logoFloat 5s ease-in-out forwards;
 position: fixed;
 right: 20px;
 bottom: 20px;
-
 z-index: 200;
 
 display: flex;
@@ -1221,17 +1390,26 @@ letter-spacing: 1px;
 cursor: pointer;
 
 box-shadow: 0 5px 20px rgba(0,0,0,.15);
-
-transition: background .25s ease;
 }
 
-.confetti-toggle:hover {
-background: var(--navy-light);
-}
-
-.confetti-toggle-icon {
+.confetti-toggle > span:first-child {
 color: var(--gold-light);
 font-size: 15px;
+}
+
+
+/* REVEAL */
+
+.reveal {
+opacity: 0;
+transform: translateY(25px);
+
+transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
 }
 
 
@@ -1255,7 +1433,7 @@ transform: scale(1.08);
 }
 
 to {
-transform: scale(1.025);
+transform: scale(1);
 }
 }
 
@@ -1280,23 +1458,6 @@ transform: translateY(-100px) rotate(30deg) scale(1.1);
 }
 
 
-/* SCROLL REVEAL */
-
-.reveal {
-opacity: 0;
-transform: translateY(25px);
-
-transition:
-opacity .8s ease,
-transform .8s ease;
-}
-
-.reveal.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-
 /* TABLET */
 
 @media (max-width: 1050px) {
@@ -1313,18 +1474,6 @@ font-size: 8px;
 font-size: 13px;
 }
 
-.services-grid {
-grid-template-columns: repeat(2, 1fr);
-}
-
-.service-card-large {
-grid-column: span 2;
-}
-
-.amenities-section {
-gap: 7%;
-}
-
 .footer-main {
 grid-template-columns: repeat(2, 1fr);
 }
@@ -1332,21 +1481,20 @@ grid-template-columns: repeat(2, 1fr);
 }
 
 
-/* MOBILE NAVIGATION */
+/* MOBILE */
 
 @media (max-width: 760px) {
 
 .top-strip {
 height: 31px;
+gap: 8px;
 font-size: 7px;
 letter-spacing: 1px;
-gap: 8px;
 }
 
 .site-header {
 top: 31px;
 height: 76px;
-
 padding: 0 22px;
 }
 
@@ -1375,23 +1523,24 @@ height: 40px;
 
 display: flex;
 flex-direction: column;
-align-items: center;
 justify-content: center;
+align-items: center;
 gap: 6px;
 
 position: relative;
 z-index: 120;
+
+background: transparent;
+border: 0;
+cursor: pointer;
 }
 
 .menu-toggle span {
 width: 25px;
 height: 1px;
-
 display: block;
-
 background: white;
-
-transition: transform .3s ease, opacity .3s ease;
+transition: .3s ease;
 }
 
 .menu-toggle.active span:first-child {
@@ -1409,16 +1558,14 @@ transform: translateY(-7px) rotate(-45deg);
 .main-navigation {
 position: fixed;
 inset: 0;
-
 z-index: 110;
 
 display: flex;
 flex-direction: column;
-align-items: stretch;
 justify-content: center;
+align-items: stretch;
 
 gap: 0;
-
 padding: 100px 40px 60px;
 
 background: var(--navy-dark);
@@ -1460,9 +1607,6 @@ letter-spacing: 2px;
 text-transform: uppercase;
 }
 
-
-/* MOBILE HERO */
-
 .hero {
 min-height: 700px;
 height: 90svh;
@@ -1470,16 +1614,8 @@ height: 90svh;
 
 .hero-overlay {
 background:
-linear-gradient(
-90deg,
-rgba(5,22,33,.88),
-rgba(5,22,33,.45)
-),
-linear-gradient(
-0deg,
-rgba(5,22,33,.6),
-transparent 65%
-);
+linear-gradient(90deg, rgba(5,22,33,.88), rgba(5,22,33,.45)),
+linear-gradient(0deg, rgba(5,22,33,.6), transparent 65%);
 }
 
 .hero-content {
@@ -1503,22 +1639,16 @@ gap: 22px;
 }
 
 .hero-bottom {
-padding: 0 25px;
 height: 58px;
+padding: 0 25px;
 font-size: 7px;
 letter-spacing: 1px;
 }
 
-.hero-bottom-center {
-display: none;
-}
-
+.hero-bottom span:nth-child(2),
 .hero-side-label {
 display: none;
 }
-
-
-/* MOBILE SECTIONS */
 
 .section-padding {
 padding: 85px 25px;
@@ -1535,10 +1665,7 @@ gap: 35px;
 margin-top: 35px;
 }
 
-.intro-heading h2,
-.heritage-content h2,
-.amenities-intro h2,
-.testimonials-heading h2 {
+.editorial-heading {
 font-size: 43px;
 }
 
@@ -1550,13 +1677,12 @@ font-size: 20px;
 height: 330px;
 }
 
-.heritage-image {
+.heritage-image-wrap img {
 min-height: 320px;
 }
 
-.heritage-image-note {
+.image-label {
 padding: 15px;
-gap: 15px;
 font-size: 7px;
 }
 
@@ -1564,14 +1690,11 @@ font-size: 7px;
 margin-top: 25px;
 }
 
-.section-heading-row {
+.section-heading-row,
+.gallery-heading {
 flex-direction: column;
 align-items: flex-start;
 gap: 20px;
-}
-
-.section-heading h2 {
-font-size: 44px;
 }
 
 .services-grid {
@@ -1580,11 +1703,7 @@ gap: 20px;
 margin-top: 40px;
 }
 
-.service-card-large {
-grid-column: auto;
-}
-
-.service-image {
+.service-photo {
 height: 230px;
 }
 
@@ -1592,12 +1711,44 @@ height: 230px;
 min-height: auto;
 }
 
-.amenities-section {
-gap: 35px;
+.work-gallery {
+grid-template-columns: 1fr 1fr;
+grid-auto-rows: 190px;
+gap: 10px;
+margin-top: 40px;
 }
 
-.amenities-list {
-padding-top: 0;
+.gallery-item.gallery-large {
+grid-column: span 2;
+grid-row: span 1;
+}
+
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(3),
+.gallery-item:nth-child(4),
+.gallery-item:nth-child(5) {
+grid-column: span 1;
+}
+
+.gallery-item figcaption {
+bottom: 12px;
+left: 12px;
+right: 12px;
+gap: 7px;
+}
+
+.gallery-item figcaption strong {
+font-size: 14px;
+}
+
+.gallery-footer {
+align-items: flex-start;
+flex-direction: column;
+gap: 15px;
+}
+
+.amenities-section {
+gap: 35px;
 }
 
 .amenity-item {
@@ -1605,7 +1756,7 @@ min-height: 62px;
 grid-template-columns: 35px 1fr 20px;
 }
 
-.amenity-item > span:nth-child(2) {
+.amenity-item strong {
 font-size: 16px;
 }
 
@@ -1613,17 +1764,12 @@ font-size: 16px;
 grid-template-columns: 1fr;
 }
 
-.berth-image {
+.berth-photo {
 min-height: 300px;
 }
 
 .berth-content {
 padding: 75px 25px;
-}
-
-.berth-content h2,
-.contact-content h2 {
-font-size: 46px;
 }
 
 .testimonial-grid {
@@ -1639,9 +1785,13 @@ padding: 30px 25px;
 font-size: 15px;
 }
 
-.compass-decoration {
-width: 210px;
+.compass-feature {
 margin-top: 70px;
+}
+
+.compass-rose {
+width: 250px;
+height: 250px;
 }
 
 .contact-section {
