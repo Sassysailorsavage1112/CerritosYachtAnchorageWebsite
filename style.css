@@ -8,9 +8,13 @@
 --white: #ffffff;
 --text: #29343c;
 --muted: #747b7e;
+
 --serif: "Playfair Display", Georgia, serif;
 --sans: "DM Sans", Arial, sans-serif;
 }
+
+
+/* GLOBAL */
 
 * {
 margin: 0;
@@ -94,6 +98,7 @@ max-width: 1440px;
 min-height: 92px;
 padding: 12px 6%;
 margin: auto;
+
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -105,6 +110,7 @@ display: flex;
 align-items: center;
 gap: 13px;
 color: var(--navy);
+flex-shrink: 0;
 }
 
 .brand img {
@@ -130,6 +136,17 @@ font-weight: 600;
 margin-top: 5px;
 font-size: 9px;
 letter-spacing: 3px;
+}
+
+.brand-partner {
+display: block;
+margin-top: 6px;
+color: #9a8050;
+font-family: var(--sans);
+font-size: 8px;
+font-weight: 600;
+letter-spacing: 1.3px;
+line-height: 1.5;
 }
 
 .main-navigation {
@@ -170,7 +187,7 @@ cursor: pointer;
 }
 
 
-/* GENERAL */
+/* GENERAL SECTIONS */
 
 .section-padding {
 padding: 115px 8%;
@@ -201,7 +218,9 @@ color: var(--gold-light);
 background: var(--gold-light);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 font-family: var(--serif);
 font-weight: 500;
 }
@@ -213,7 +232,8 @@ line-height: 1.16;
 letter-spacing: -1.5px;
 }
 
-h2 em, h1 em {
+h2 em,
+h1 em {
 color: var(--gold);
 font-weight: 400;
 }
@@ -307,9 +327,11 @@ background: var(--navy);
 .hero-background {
 position: absolute;
 inset: 0;
+
 background-image: url("https://cerritosyacht.com/wp-content/uploads/2020/03/IMG_9863-min-600x370.png");
 background-position: center 52%;
 background-size: cover;
+
 transform: scale(1.02);
 animation: heroReveal 1.5s ease both;
 }
@@ -317,6 +339,7 @@ animation: heroReveal 1.5s ease both;
 .hero-overlay {
 position: absolute;
 inset: 0;
+
 background:
 linear-gradient(
 90deg,
@@ -334,9 +357,11 @@ transparent 45%
 .hero-content {
 position: relative;
 z-index: 2;
+
 width: min(760px, 85%);
 margin-left: 10%;
 padding: 70px 0 110px;
+
 color: white;
 animation: contentReveal 1s ease both;
 }
@@ -380,9 +405,11 @@ z-index: 2;
 bottom: 30px;
 left: 10%;
 right: 10%;
+
 display: flex;
 align-items: center;
 gap: 20px;
+
 color: rgba(255, 255, 255, 0.72);
 font-size: 9px;
 letter-spacing: 2px;
@@ -399,6 +426,7 @@ from {
 transform: scale(1.09);
 opacity: 0.6;
 }
+
 to {
 transform: scale(1.02);
 opacity: 1;
@@ -410,6 +438,7 @@ from {
 opacity: 0;
 transform: translateY(25px);
 }
+
 to {
 opacity: 1;
 transform: translateY(0);
@@ -479,6 +508,7 @@ transform: scale(1.035);
 position: absolute;
 inset: 0;
 content: "";
+
 background: linear-gradient(
 0deg,
 rgba(7, 19, 28, 0.58),
@@ -491,6 +521,7 @@ position: absolute;
 z-index: 2;
 bottom: 35px;
 left: 8%;
+
 color: white;
 font-size: 10px;
 font-weight: 700;
@@ -588,7 +619,9 @@ margin: auto;
 
 .service-card {
 background: white;
-transition: transform 0.35s ease, box-shadow 0.35s ease;
+transition:
+transform 0.35s ease,
+box-shadow 0.35s ease;
 }
 
 .service-card:hover {
@@ -706,6 +739,7 @@ display: grid;
 grid-template-columns: repeat(3, 1fr);
 max-width: 1150px;
 margin: auto;
+
 border-top: 1px solid #e5e0d6;
 border-left: 1px solid #e5e0d6;
 }
@@ -713,8 +747,10 @@ border-left: 1px solid #e5e0d6;
 .amenity {
 min-height: 190px;
 padding: 32px;
+
 border-right: 1px solid #e5e0d6;
 border-bottom: 1px solid #e5e0d6;
+
 transition: background 0.3s ease;
 }
 
@@ -750,6 +786,7 @@ display: grid;
 grid-template-columns: 0.9fr 1.1fr;
 align-items: center;
 gap: 9%;
+
 padding: 100px 10%;
 background: #eae6dc;
 }
@@ -794,6 +831,7 @@ display: flex;
 flex-direction: column;
 min-height: 300px;
 padding: 35px 30px;
+
 background: white;
 border-bottom: 2px solid var(--gold);
 box-shadow: 0 10px 35px rgba(16, 31, 44, 0.035);
@@ -810,6 +848,7 @@ line-height: 1;
 .testimonial-card > p {
 flex: 1;
 margin: 15px 0 25px;
+
 color: #626c70;
 font-family: var(--serif);
 font-size: 16px;
@@ -820,6 +859,7 @@ line-height: 1.8;
 display: flex;
 align-items: center;
 gap: 12px;
+
 color: var(--navy);
 font-size: 11px;
 letter-spacing: 1px;
@@ -839,9 +879,11 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 75px;
+
 max-width: 950px;
 margin: 90px auto 0;
 padding: 55px 45px;
+
 border-top: 1px solid #d9d0c0;
 border-bottom: 1px solid #d9d0c0;
 }
@@ -948,6 +990,7 @@ background: var(--navy);
 .contact-background {
 position: absolute;
 inset: 0;
+
 background-image: url("https://cerritosyacht.com/wp-content/uploads/2020/03/Gelcoat-repairs3-600x370.jpg");
 background-position: center;
 background-size: cover;
@@ -956,6 +999,7 @@ background-size: cover;
 .contact-overlay {
 position: absolute;
 inset: 0;
+
 background: linear-gradient(
 90deg,
 rgba(8, 20, 30, 0.96),
@@ -967,9 +1011,11 @@ rgba(8, 20, 30, 0.42)
 .contact-content {
 position: relative;
 z-index: 2;
+
 width: min(850px, 85%);
 margin-left: 10%;
 padding: 100px 0;
+
 color: white;
 }
 
@@ -995,6 +1041,7 @@ line-height: 1.9;
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 25px 40px;
+
 max-width: 650px;
 margin-bottom: 40px;
 }
@@ -1030,20 +1077,27 @@ color: white;
 display: grid;
 grid-template-columns: 1.5fr 1fr 1fr;
 gap: 70px;
+
 max-width: 1300px;
 margin: auto;
 padding: 75px 8%;
 }
 
 .footer-brand {
-max-width: 330px;
+max-width: 350px;
+}
+
+.footer-brand-heading {
+display: flex;
+align-items: center;
+gap: 15px;
 }
 
 .footer-brand img {
+flex-shrink: 0;
 width: 65px;
 height: 65px;
 object-fit: contain;
-margin-bottom: 12px;
 }
 
 .footer-brand strong,
@@ -1062,6 +1116,16 @@ margin-top: 4px;
 color: var(--gold-light);
 font-size: 9px;
 letter-spacing: 3px;
+}
+
+.footer-partner {
+display: block;
+margin-top: 6px;
+color: var(--gold-light);
+font-size: 8px;
+font-weight: 600;
+letter-spacing: 1.3px;
+line-height: 1.5;
 }
 
 .footer-brand p {
@@ -1100,31 +1164,39 @@ color: var(--gold-light);
 display: flex;
 justify-content: space-between;
 gap: 20px;
+
 padding: 22px 8%;
 border-top: 1px solid rgba(255, 255, 255, 0.1);
+
 color: rgba(255, 255, 255, 0.45);
 font-size: 10px;
 letter-spacing: 1px;
 }
 
 
-/* CONFETTI TOGGLE */
+/* FLOATING LOGO EFFECT */
 
 .confetti-toggle {
 position: fixed;
 z-index: 1001;
 right: 24px;
 bottom: 24px;
+
 width: 45px;
 height: 45px;
+
 display: grid;
 place-items: center;
+
 border: 1px solid var(--gold);
 border-radius: 50%;
+
 background: var(--navy);
 color: var(--gold-light);
+
 font-size: 22px;
 cursor: pointer;
+
 box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
 transition: transform 0.25s ease;
 }
@@ -1155,12 +1227,15 @@ animation: logoFloat 8s linear forwards;
 transform: translateY(110vh) rotate(0deg);
 opacity: 0;
 }
+
 10% {
 opacity: 0.65;
 }
+
 90% {
 opacity: 0.55;
 }
+
 100% {
 transform: translateY(-15vh) rotate(360deg);
 opacity: 0;
@@ -1208,6 +1283,7 @@ gap: 7%;
 .footer-main {
 gap: 35px;
 }
+
 }
 
 
@@ -1230,17 +1306,27 @@ display: none;
 min-height: 76px;
 }
 
+.brand {
+gap: 9px;
+}
+
 .brand img {
-width: 48px;
-height: 48px;
+width: 45px;
+height: 45px;
 }
 
 .brand-name strong {
-font-size: 18px;
+font-size: 17px;
 }
 
 .brand-name small {
-font-size: 8px;
+font-size: 7px;
+letter-spacing: 2px;
+}
+
+.brand-partner {
+font-size: 7px;
+letter-spacing: 0.9px;
 }
 
 .menu-toggle {
@@ -1248,6 +1334,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 gap: 6px;
+
 width: 42px;
 height: 42px;
 }
@@ -1277,11 +1364,14 @@ position: absolute;
 top: 100%;
 left: 0;
 right: 0;
+
 display: none;
 flex-direction: column;
 align-items: stretch;
 gap: 0;
+
 padding: 15px 6% 25px;
+
 background: var(--cream);
 border-top: 1px solid #e5e0d6;
 box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
@@ -1449,6 +1539,7 @@ padding: 60px 8%;
 .footer-brand {
 grid-column: 1 / -1;
 }
+
 }
 
 
@@ -1502,6 +1593,7 @@ grid-column: auto;
 flex-direction: column;
 text-align: center;
 }
+
 }
 
 
