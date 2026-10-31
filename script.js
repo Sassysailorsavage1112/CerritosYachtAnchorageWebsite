@@ -1,102 +1,144 @@
+
 document.addEventListener("DOMContentLoaded", () => {
+  /* MOBILE NAVIGATION */
 
-/* MOBILE NAVIGATION */
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navigation = document.querySelector(".navigation");
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".navigation");
+  if (menuToggle && navigation) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
 
-if (menuToggle && navigation) {
-menuToggle.addEventListener("click", () => {
-const isOpen = navigation.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+    });
 
-menuToggle.setAttribute("aria-expanded", String(isOpen));
-menuToggle.setAttribute(
-"aria-label",
-isOpen ? "Close navigation" : "Open navigation"
-);
-});
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+  }
 
-navigation.querySelectorAll("a").forEach(link => {
-link.addEventListener("click", () => {
-navigation.classList.remove("open");
-menuToggle.setAttribute("aria-expanded", "false");
-menuToggle.setAttribute("aria-label", "Open navigation");
-});
-});
-}
+  /* TESTIMONIAL SLIDER */
 
-/* TESTIMONIAL ROTATION */
+  const reviews = Array.from(
+    document.querySelectorAll(".testimonial")
+  );
 
-const reviews = Array.from(
-document.querySelectorAll(".testimonial")
-);
+  const previousButton = document.getElementById("previousReview");
+  const nextButton = document.getElementById("nextReview");
+  const reviewCount = document.getElementById("reviewCount");
+  const testimonialSection = document.querySelector(".testimonials");
 
-const previousButton = document.getElementById("previousReview");
-const nextButton = document.getElementById("nextReview");
-const reviewCount = document.getElementById("reviewCount");
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
 
-let currentReview = 0;
-let reviewTimer;
+  if (!reviews.length) return;
 
-function displayReview(index) {
-if (!reviews.length) return;
+  let currentReview = 0;
+  let reviewTimer = null;
+  let isPaused = reducedMotion.matches;
 
-currentReview = (index + reviews.length) % reviews.length;
+  const rotationDelay = 8000;
 
-reviews.forEach((review, position) => {
-review.classList.toggle(
-"active",
-position === currentReview
-);
-});
+  function displayReview(index) {
+    currentReview = (index + reviews.length) % reviews.length;
 
-if (reviewCount) {
-const current = String(currentReview + 1).padStart(2, "0");
-const total = String(reviews.length).padStart(2, "0");
+    reviews.forEach((review, position) => {
+      const isActive = position === currentReview;
 
-reviewCount.textContent = `${current} / ${total}`;
-}
-}
+      review.classList.toggle("active", isActive);
+      review.setAttribute("aria-hidden", String(!isActive));
+    });
 
-function restartReviewTimer() {
-clearInterval(reviewTimer);
+    if (reviewCount) {
+      const current = String(currentReview + 1).padStart(2, "0");
+      const total = String(reviews.length).padStart(2, "0");
 
-reviewTimer = setInterval(() => {
-displayReview(currentReview + 1);
-}, 8000);
-}
+      reviewCount.textContent = `${current} / ${total}`;
+    }
+  }
 
-if (reviews.length) {
-displayReview(0);
-restartReviewTimer();
-}
+  function stopReviewTimer() {
+    if (reviewTimer !== null) {
+      clearInterval(reviewTimer);
+      reviewTimer = null;
+    }
+  }
 
-if (previousButton) {
-previousButton.addEventListener("click", () => {
-displayReview(currentReview - 1);
-restartReviewTimer();
-});
-}
+  function startReviewTimer() {
+    stopReviewTimer();
 
-if (nextButton) {
-nextButton.addEventListener("click", () => {
-displayReview(currentReview + 1);
-restartReviewTimer();
-});
-}
+    if (isPaused || reviews.length < 2) return;
 
-/* PAUSE AUTOMATIC ROTATION WHEN USER HOVERS */
+    reviewTimer = setInterval(() => {
+      displayReview(currentReview + 1);
+    }, rotationDelay);
+  }
 
-const testimonialCard = document.querySelector(".testimonial-card");
+  function pauseReviews() {
+    isPaused = true;
+    stopReviewTimer();
+  }
 
-if (testimonialCard) {
-testimonialCard.addEventListener("mouseenter", () => {
-clearInterval(reviewTimer);
-});
+  function resumeReviews() {
+    isPaused = false;
+    startReviewTimer();
+  }
 
-testimonialCard.addEventListener("mouseleave", () => {
-restartReviewTimer();
-});
-}
+  function moveReview(direction) {
+    displayReview(currentReview + direction);
+    startReviewTimer();
+  }
 
+  /* INITIALIZE */
+
+  displayReview(0);
+  startReviewTimer();
+
+  /* PREVIOUS AND NEXT ARROWS */
+
+  if (previousButton) {
+    previousButton.addEventListener("click", () => {
+      moveReview(-1);
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      moveReview(1);
+    });
+  }
+
+  /* PAUSE WHILE THE USER HOVERS OR USES THE CONTROLS */
+
+  if (testimonialSection) {
+    testimonialSection.addEventListener("mouseenter", pauseReviews);
+    testimonialSection.addEventListener("mouseleave", resumeReviews);
+
+    testimonialSection.addEventListener("focusin", pauseReviews);
+
+    testimonialSection.addEventListener("focusout", event => {
+      if (!testimonialSection.contains(event.relatedTarget)) {
+        resumeReviews();
+      }
+    });
+  }
+
+  /* RESPECT REDUCED-MOTION SETTINGS */
+
+  reducedMotion.addEventListener("change", event => {
+    if (event.matches) {
+      pauseReviews();
+    } else {
+      resumeReviews();
+    }
+  });
 });
