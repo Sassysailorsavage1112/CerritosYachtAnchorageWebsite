@@ -1,6 +1,6 @@
 /* =========================================
 CERRITOS YACHT ANCHORAGE
-Website Interactions
+INTERACTIVE WEBSITE FEATURES
 ========================================= */
 
 
@@ -9,16 +9,19 @@ Website Interactions
 const menuToggle = document.getElementById("menuToggle");
 const mainNavigation = document.getElementById("mainNavigation");
 
+
 function closeMenu() {
+
 if (!menuToggle || !mainNavigation) return;
 
 menuToggle.classList.remove("active");
 mainNavigation.classList.remove("open");
 
 menuToggle.setAttribute("aria-expanded", "false");
-menuToggle.setAttribute("aria-label", "Open navigation menu");
+menuToggle.setAttribute("aria-label", "Open navigation");
 
 document.body.classList.remove("menu-open");
+
 }
 
 
@@ -30,11 +33,14 @@ const isOpen = mainNavigation.classList.toggle("open");
 
 menuToggle.classList.toggle("active", isOpen);
 
-menuToggle.setAttribute("aria-expanded", String(isOpen));
+menuToggle.setAttribute(
+"aria-expanded",
+String(isOpen)
+);
 
 menuToggle.setAttribute(
 "aria-label",
-isOpen ? "Close navigation menu" : "Open navigation menu"
+isOpen ? "Close navigation" : "Open navigation"
 );
 
 document.body.classList.toggle("menu-open", isOpen);
@@ -79,9 +85,13 @@ function updateHeader() {
 if (!siteHeader) return;
 
 if (window.scrollY > 50) {
+
 siteHeader.classList.add("scrolled");
+
 } else {
+
 siteHeader.classList.remove("scrolled");
+
 }
 
 }
@@ -92,11 +102,12 @@ window.addEventListener("scroll", updateHeader);
 updateHeader();
 
 
-/* SCROLL REVEAL ANIMATIONS */
+/* SCROLL REVEAL */
 
 const revealElements = document.querySelectorAll(
-".intro-grid, .image-feature, .heritage-grid, .service-card, .amenity-item, .testimonial-card, .compass-decoration"
+".intro-grid, .image-feature, .heritage-grid, .service-card, .gallery-item, .amenity-item, .testimonial-card, .compass-feature"
 );
+
 
 revealElements.forEach(element => {
 
@@ -141,17 +152,15 @@ revealObserver.observe(element);
 /* FLOATING LOGO CONFETTI */
 
 const confettiToggle = document.getElementById("confettiToggle");
+
 const confettiToggleText = document.getElementById("confettiToggleText");
+
 const confettiLayer = document.getElementById("confettiLayer");
 
 let confettiEnabled = false;
+
 let confettiInterval = null;
 
-
-/*
-This uses the same logo image as the header.
-The logo image floats gently across the screen.
-*/
 
 function createLogoConfetti() {
 
@@ -170,9 +179,11 @@ const leftPosition = Math.random() * 95;
 const size = 18 + Math.random() * 18;
 
 piece.style.left = `${leftPosition}%`;
+
 piece.style.top = `${70 + Math.random() * 25}%`;
 
 piece.style.width = `${size}px`;
+
 piece.style.height = `${size}px`;
 
 piece.style.animationDuration = `${4 + Math.random() * 3}s`;
@@ -254,7 +265,7 @@ confettiToggleText.textContent = "Nautical accents: On";
 }
 
 
-/* SMOOTH SCROLL */
+/* SMOOTH ANCHOR SCROLLING */
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
@@ -271,22 +282,25 @@ if (!target) return;
 event.preventDefault();
 
 target.scrollIntoView({
+
 behavior: "smooth",
+
 block: "start"
-});
 
 });
 
 });
 
+});
 
-/* FOOTER YEAR */
 
-const copyrightText = document.querySelector(".footer-bottom span");
+/* AUTOMATIC COPYRIGHT YEAR */
 
-if (copyrightText) {
+const copyrightYear = document.getElementById("copyrightYear");
 
-copyrightText.textContent =
+if (copyrightYear) {
+
+copyrightYear.textContent =
 `© ${new Date().getFullYear()} CERRITOS YACHT ANCHORAGE, INC.`;
 
 }
