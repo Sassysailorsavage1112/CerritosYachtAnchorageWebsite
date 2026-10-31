@@ -1,306 +1,105 @@
-/* =========================================
-CERRITOS YACHT ANCHORAGE
-INTERACTIVE WEBSITE FEATURES
-========================================= */
+// MOBILE NAVIGATION
 
-
-/* MOBILE NAVIGATION */
-
-const menuToggle = document.getElementById("menuToggle");
-const mainNavigation = document.getElementById("mainNavigation");
-
-
-function closeMenu() {
-
-if (!menuToggle || !mainNavigation) return;
-
-menuToggle.classList.remove("active");
-mainNavigation.classList.remove("open");
-
-menuToggle.setAttribute("aria-expanded", "false");
-menuToggle.setAttribute("aria-label", "Open navigation");
-
-document.body.classList.remove("menu-open");
-
-}
-
-
-if (menuToggle && mainNavigation) {
+const menuToggle = document.getElementById("menu-toggle");
+const navigation = document.getElementById("navigation");
 
 menuToggle.addEventListener("click", () => {
+const isOpen = navigation.classList.toggle("open");
 
-const isOpen = mainNavigation.classList.toggle("open");
+menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
 
-menuToggle.classList.toggle("active", isOpen);
-
-menuToggle.setAttribute(
-"aria-expanded",
-String(isOpen)
-);
-
-menuToggle.setAttribute(
-"aria-label",
-isOpen ? "Close navigation" : "Open navigation"
-);
-
-document.body.classList.toggle("menu-open", isOpen);
-
+navigation.querySelectorAll("a").forEach(link => {
+link.addEventListener("click", () => {
+navigation.classList.remove("open");
+menuToggle.setAttribute("aria-expanded", "false");
+});
 });
 
 
-mainNavigation.querySelectorAll("a").forEach(link => {
+// TESTIMONIAL SLIDER
 
-link.addEventListener("click", closeMenu);
+const reviews = document.querySelectorAll(".review");
+const reviewCount = document.getElementById("review-count");
 
+const previousButton = document.getElementById("previous-review");
+const nextButton = document.getElementById("next-review");
+
+let currentReview = 0;
+
+function showReview(index) {
+reviews[currentReview].classList.remove("active");
+
+currentReview = (index + reviews.length) % reviews.length;
+
+reviews[currentReview].classList.add("active");
+
+reviewCount.textContent =
+`${String(currentReview + 1).padStart(2, "0")} / ${String(reviews.length).padStart(2, "0")}`;
+}
+
+previousButton.addEventListener("click", () => {
+showReview(currentReview - 1);
+});
+
+nextButton.addEventListener("click", () => {
+showReview(currentReview + 1);
 });
 
 
-document.addEventListener("keydown", event => {
+// FLOATING LOGO EFFECT
 
-if (event.key === "Escape") {
-closeMenu();
-}
+const effectToggle = document.getElementById("effect-toggle");
+const floatingContainer = document.getElementById("floating-logos");
 
-});
+let effectEnabled = false;
+let floatingInterval = null;
 
+function createFloatingLogo() {
+const logo = document.createElement("img");
 
-window.addEventListener("resize", () => {
+logo.src = "assets/cerritos-logo-no-text.png";
+logo.alt = "";
 
-if (window.innerWidth > 760) {
-closeMenu();
-}
+logo.className = "floating-logo";
 
-});
+logo.style.left = Math.random() * 95 + "%";
+logo.style.animationDuration = (6 + Math.random() * 5) + "s";
+logo.style.width = (25 + Math.random() * 25) + "px";
 
-}
-
-
-/* STICKY HEADER */
-
-const siteHeader = document.getElementById("siteHeader");
-
-
-function updateHeader() {
-
-if (!siteHeader) return;
-
-if (window.scrollY > 50) {
-
-siteHeader.classList.add("scrolled");
-
-} else {
-
-siteHeader.classList.remove("scrolled");
-
-}
-
-}
-
-
-window.addEventListener("scroll", updateHeader);
-
-updateHeader();
-
-
-/* SCROLL REVEAL */
-
-const revealElements = document.querySelectorAll(
-".intro-grid, .image-feature, .heritage-grid, .service-card, .gallery-item, .amenity-item, .testimonial-card, .compass-feature"
-);
-
-
-revealElements.forEach(element => {
-
-element.classList.add("reveal");
-
-});
-
-
-const revealObserver = new IntersectionObserver(
-
-entries => {
-
-entries.forEach(entry => {
-
-if (entry.isIntersecting) {
-
-entry.target.classList.add("visible");
-
-revealObserver.unobserve(entry.target);
-
-}
-
-});
-
-},
-
-{
-threshold: 0.12,
-rootMargin: "0px 0px -35px 0px"
-}
-
-);
-
-
-revealElements.forEach(element => {
-
-revealObserver.observe(element);
-
-});
-
-
-/* FLOATING LOGO CONFETTI */
-
-const confettiToggle = document.getElementById("confettiToggle");
-
-const confettiToggleText = document.getElementById("confettiToggleText");
-
-const confettiLayer = document.getElementById("confettiLayer");
-
-let confettiEnabled = false;
-
-let confettiInterval = null;
-
-
-function createLogoConfetti() {
-
-if (!confettiLayer || !confettiEnabled) return;
-
-const piece = document.createElement("img");
-
-piece.src = "assets/cerritos-logo-no-text.png";
-
-piece.alt = "";
-
-piece.className = "confetti-piece";
-
-const leftPosition = Math.random() * 95;
-
-const size = 18 + Math.random() * 18;
-
-piece.style.left = `${leftPosition}%`;
-
-piece.style.top = `${70 + Math.random() * 25}%`;
-
-piece.style.width = `${size}px`;
-
-piece.style.height = `${size}px`;
-
-piece.style.animationDuration = `${4 + Math.random() * 3}s`;
-
-confettiLayer.appendChild(piece);
-
+floatingContainer.appendChild(logo);
 
 setTimeout(() => {
-
-piece.remove();
-
-}, 7500);
-
+logo.remove();
+}, 11000);
 }
 
+function enableEffect() {
+if (effectEnabled) return;
 
-function startConfetti() {
+effectEnabled = true;
 
-if (confettiInterval) return;
+effectToggle.setAttribute("aria-pressed", "true");
 
-confettiEnabled = true;
+createFloatingLogo();
 
-createLogoConfetti();
-
-confettiInterval = setInterval(() => {
-
-createLogoConfetti();
-
-}, 650);
-
+floatingInterval = setInterval(createFloatingLogo, 850);
 }
 
+function disableEffect() {
+effectEnabled = false;
 
-function stopConfetti() {
+effectToggle.setAttribute("aria-pressed", "false");
 
-confettiEnabled = false;
+clearInterval(floatingInterval);
 
-if (confettiInterval) {
-
-clearInterval(confettiInterval);
-
-confettiInterval = null;
-
+floatingContainer.innerHTML = "";
 }
 
-if (confettiLayer) {
-
-confettiLayer.innerHTML = "";
-
-}
-
-}
-
-
-if (confettiToggle) {
-
-confettiToggle.addEventListener("click", () => {
-
-if (confettiEnabled) {
-
-stopConfetti();
-
-confettiToggle.setAttribute("aria-pressed", "false");
-
-confettiToggleText.textContent = "Nautical accents: Off";
-
+effectToggle.addEventListener("click", () => {
+if (effectEnabled) {
+disableEffect();
 } else {
-
-startConfetti();
-
-confettiToggle.setAttribute("aria-pressed", "true");
-
-confettiToggleText.textContent = "Nautical accents: On";
-
+enableEffect();
 }
-
 });
-
-}
-
-
-/* SMOOTH ANCHOR SCROLLING */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-anchor.addEventListener("click", event => {
-
-const targetId = anchor.getAttribute("href");
-
-if (!targetId || targetId === "#") return;
-
-const target = document.querySelector(targetId);
-
-if (!target) return;
-
-event.preventDefault();
-
-target.scrollIntoView({
-
-behavior: "smooth",
-
-block: "start"
-
-});
-
-});
-
-});
-
-
-/* AUTOMATIC COPYRIGHT YEAR */
-
-const copyrightYear = document.getElementById("copyrightYear");
-
-if (copyrightYear) {
-
-copyrightYear.textContent =
-`© ${new Date().getFullYear()} CERRITOS YACHT ANCHORAGE, INC.`;
-
-}
